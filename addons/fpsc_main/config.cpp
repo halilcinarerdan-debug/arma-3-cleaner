@@ -14,7 +14,7 @@ class CfgFunctions {
     class FPSC {
         tag = "FPSC";
         class core {
-            file = "fpsc\main\functions";
+            file = "\z\fpsc\addons\fpsc_main\functions";
             class applyEnv {};
             class applyGeo {};
             class chunkObjects {};
@@ -43,6 +43,6 @@ class CfgFunctions {
 
 class Extended_PreInit_EventHandlers {
     class fpsc_main {
-        init = "call compile preprocessFileLineNumbers 'fpsc\main\XEH_preInit.sqf'";
+        init = "call compile preprocessFileLineNumbers '\z\fpsc\addons\fpsc_main\XEH_preInit.sqf'";
     };
 };

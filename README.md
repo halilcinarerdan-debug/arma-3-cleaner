@@ -8,7 +8,8 @@ ve terrain/atmosfer/geometri ayarlarını CBA menüsünden yönetmenizi sağlaya
 > RPT dosyasında `[FPSC]` satırlarına bakın, hata çıkarsa bana iletin.
 
 ## Kurulum (Mikero araçlarıyla)
-1. `addons/fpsc_main` klasörünü **pboProject** ile paketleyin (`$PBOPREFIX$` içinde `fpsc\main` yazıyor). Çıkan `fpsc_main.pbo`
+1. `addons/fpsc_main` klasörünün **içeriğini** `P:\z\fpsc\addons\fpsc_main` altına kopyalayın (`$PBOPREFIX$` = `z\fpsc\addons\fpsc_main`,
+   `config.cpp` yolları da buna göre; klasör yolu önekle birebir aynı olmalı) ve **pboProject** ile paketleyin. Çıkan `fpsc_main.pbo`
    dosyasını `@FPS_Cleaner/addons/` altına koyun, `mod.cpp` dosyasını `@FPS_Cleaner/` altına kopyalayın.
 2. `@CBA_A3` ile birlikte hem **sunucuya** hem **oyunculara** yükleyin (ayarlar menüsü ve terrain/geometri ayarları istemcide çalışır).
 3. İsteğe bağlı: `userconfig/fpsc/hide_list.txt` ve `userconfig/cba_settings.sqf.example` dosyalarını sunucudaki `userconfig` klasörüne kopyalayın.
