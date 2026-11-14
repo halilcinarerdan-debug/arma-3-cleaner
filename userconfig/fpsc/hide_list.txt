@@ -22,18 +22,31 @@
 *gbr_rocks1/gran
 *gbr_rocks1/cono
 
+// ---- D) junk / trash props found in the scan (small counts, no gameplay value) ----
+barreltrash_f
+sacks_goods_f
+cratesshabby_f
+crateswooden_f
+woodenbox_f
+metalbarrel_f
+concretepipe_f
+jbad_misc_concpipeline
+*jbad_trunk
+*structures_f/wrecks/
+
 // ---- C) optional, affects gameplay (cover / buildings), off by default ----
 // *jbad_structures/walls/
 // *gbr_rocks1/muro
 // *gbr_rocks/muro
 // *lamp
-// barreltrash_f
-// sacks_goods_f
-// cratesshabby_f
-// crateswooden_f
-// woodenbox_f
-// metalbarrel_f
-// concretepipe_f
+// indpipe1_ground_f
+// indpipe1_20m_f
+// runway_edgelight
+// runway_edgelight_blue_f
+// pavement_wide_f
+// pavement_narrow_f
+// obstacle_saddle_f
+// shoot_house_panels_f
 
 // Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
 // Never hide: invisibleroadway_square_f (runway surface), stream*/rivers (water), jbad_house*, ffaa_casa*, power lines.
