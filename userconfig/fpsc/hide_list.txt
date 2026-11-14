@@ -1,18 +1,19 @@
-// FPS Cleaner - decor list, made from the whole-map scan (JBAD / Lythium / A3).
+// FPS Cleaner - decor list, made from the whole-map scans (vanilla A3 + JBAD / Lythium).
 // Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Also read userconfig\fpsc\hide_list.txt")
 // An entry that contains * is a "contains" match on the model path; "/" and "\" are the same here.
 // Do not write a slash right before a star, a slash-star pair starts a block comment in this file.
-// Remove the leading // of a line to enable it.
+// Remove the leading // of a line to enable it, add // to a line to keep those objects.
 
-// ---- A) grass clutter and small plants (~60k objects, nearly no gameplay effect) ----
+// ---- A) grass clutter, leaf decals, small plants ----
 *plants_f/clutter/
+*plants_f/_leafs/
 *c_grass
 *c_bigfallenbranches
 *gbr_clutter/
 *plants_f/plant/
 *jbad_veg/plants/plant/
 
-// ---- B) bushes and loose rocks (~480k objects, some concealment/cover is lost) ----
+// ---- B) bushes and loose rocks (~480k objects, the real FPS win) ----
 *plants_f/bush/
 *jbad_veg/plants/bush/
 *gbr_bush/
@@ -22,31 +23,47 @@
 *gbr_rocks1/gran
 *gbr_rocks1/cono
 
-// ---- D) junk / trash props found in the scan (small counts, no gameplay value) ----
-barreltrash_f
-sacks_goods_f
-cratesshabby_f
-crateswooden_f
-woodenbox_f
-metalbarrel_f
-concretepipe_f
+// ---- D) vanilla junk / props (garbage, market stuff, camping, benches, pipes, wrecks ...) ----
+*civ/garbage/
+*civ/market/
+*civ/constructions/
+*civ/camping/
+*civ/accessories/
+*civ/pavements/
+*items/vessels/
+*scrapyard/
+*sportsgrounds/
+*ind/pipes/
+*structures_f/wrecks/
+*mil/flags/
 jbad_misc_concpipeline
 *jbad_trunk
-*structures_f/wrecks/
 
-// ---- C) optional, affects gameplay (cover / buildings), off by default ----
+// ---- E) roadside barriers, road signs, lamps, airfield lights ----
+crash_barrier_f
+cncbarriermedium4_f
+cncbarriermedium_f
+cncbarrier_stripes_f
+razorwire_f
+*signs_f/signt/
+*civ/lamps/
+*misc_lamp/
+*runwaylights/
+
+// ---- C) optional, affects gameplay (cover), off by default ----
 // *jbad_structures/walls/
 // *gbr_rocks1/muro
 // *gbr_rocks/muro
-// *lamp
-// indpipe1_ground_f
-// indpipe1_20m_f
-// runway_edgelight
-// runway_edgelight_blue_f
-// pavement_wide_f
-// pavement_narrow_f
-// obstacle_saddle_f
-// shoot_house_panels_f
+// hbarrier_big_f
+// hbarrier_5_f
+// hbarrier_3_f
+// hbarrier_1_f
+// hbarriertower_f
+// mound01_8m_f
+// mound02_8m_f
+// *mil/bagfence/
+// *structures_f/training/
+// *ind/cargo/
 
 // Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
-// Never hide: invisibleroadway_square_f (runway surface), stream*/rivers (water), jbad_house*, ffaa_casa*, power lines.
+// Never hide: invisibleroadway_square_f (runway surface), stream*/rivers (water), houses, power lines, city walls.
