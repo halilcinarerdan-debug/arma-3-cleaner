@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="FPSC">
+    <Package name="Main">
+        <Container name="Main">
+            <Key ID="STR_FPSC_cat">
+                <English>FPS Cleaner</English>
+                <Turkish>FPS Cleaner</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_1">
+                <English>1 General</English>
+                <Turkish>1 Genel</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_2">
+                <English>2 Decor objects</English>
+                <Turkish>2 Süs objeleri</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_3">
+                <English>3 Clusters</English>
+                <Turkish>3 Kümeler (seyreltme)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_4">
+                <English>4 Roadside</English>
+                <Turkish>4 Yol kenarı</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_5">
+                <English>5 Destruction / simulation</English>
+                <Turkish>5 Yıkılma / simülasyon</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_6">
+                <English>6 Terrain / atmosphere</English>
+                <Turkish>6 Terrain / atmosfer</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_sub_7">
+                <English>7 Geometry</English>
+                <Turkish>7 Geometri</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_enabled">
+                <English>Enable FPS Cleaner</English>
+                <Turkish>FPS Cleaner'ı etkinleştir</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_enabled_tip">
+                <English>Master switch (server setting). Turning it off restores every object this mod hid or protected.</English>
+                <Turkish>Ana şalter (sunucu ayarı). Kapatınca modun gizlediği/korumaya aldığı tüm objeler eski haline döner.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_mode">
+                <English>Removal method</English>
+                <Turkish>Silme yöntemi</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_mode_tip">
+                <English>Server: hideObjectGlobal, objects disappear for everyone incl. AI/collision (best for server performance, but heavy on network/JIP with very large counts). Local: every client hides objects itself (no network cost).</English>
+                <Turkish>Sunucu: hideObjectGlobal, objeler herkes için (AI/çarpışma dahil) kaybolur. Çok büyük sayılarda ağ/JIP yükü olabilir. Yerel: her oyuncu kendi tarafında gizler (ağ yükü yok).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_mode_server">
+                <English>Server (hideObjectGlobal)</English>
+                <Turkish>Sunucu (hideObjectGlobal)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_mode_local">
+                <English>Local on every client (hideObject)</English>
+                <Turkish>Her istemcide yerel (hideObject)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_radius">
+                <English>Processing radius around players (m)</English>
+                <Turkish>Oyuncular çevresinde işlem yarıçapı (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_radius_tip">
+                <English>Only the map around players is processed (in chunks, as they move). 0 = whole map (slow start).</English>
+                <Turkish>Sadece oyuncuların çevresi işlenir (oyuncu hareket ettikçe parça parça). 0 = tüm harita (yavaş başlar).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_budget">
+                <English>Time budget per frame (ms)</English>
+                <Turkish>Kare başına zaman bütçesi (ms)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_budget_tip">
+                <English>How much CPU time per frame the cleaner may use. Lower = smoother but slower cleaning.</English>
+                <Turkish>Temizleyicinin kare başına kullanabileceği CPU süresi. Düşük = akıcı ama yavaş temizlik.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_debug">
+                <English>Debug logging (RPT)</English>
+                <Turkish>Debug kaydı (RPT)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_debug_tip">
+                <English>Writes rule compilation and progress lines starting with [FPSC] to the RPT file.</English>
+                <Turkish>Kural derleme ve ilerleme satırlarını [FPSC] önekiyle RPT dosyasına yazar.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_enabled">
+                <English>Delete decor objects from list</English>
+                <Turkish>Listedeki süs objelerini sil</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_enabled_tip">
+                <English>Hides terrain objects that match the decor list below.</English>
+                <Turkish>Aşağıdaki listeyle eşleşen terrain objelerini gizler.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_list">
+                <English>Decor list</English>
+                <Turkish>Süs objesi listesi</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_list_tip">
+                <English>Separated by comma/semicolon/space. Plain entry = classname or model file/path (jbad_barrel_01). Entry with * = contains match (jbad_*, *bottle*). Prefix ! = never hide. Get entries from the scan tool (Ctrl+Shift+O / Ctrl+Shift+I).</English>
+                <Turkish>Virgül/noktalı virgül/boşlukla ayır. Düz giriş = classname veya model dosyası/yolu (jbad_barrel_01). * içeren giriş = içeriyorsa eşleşir (jbad_*, *bottle*). Başında ! = asla gizleme. Girişleri tarama aracından al (Ctrl+Shift+O / Ctrl+Shift+I).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_file">
+                <English>Also read userconfig\fpsc\hide_list.txt</English>
+                <Turkish>userconfig\fpsc\hide_list.txt dosyasını da oku</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_file_tip">
+                <English>Reads extra entries from that file (one per line, // comments, use / instead of trailing backslash). Handy for long lists.</English>
+                <Turkish>Ek girişleri bu dosyadan okur (satır başına bir tane, // yorum, sondaki ters eğik çizgi yerine / kullan). Uzun listeler için.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_mission">
+                <English>Also delete mission/spawned objects by classname</English>
+                <Turkish>Görev/sonradan oluşan objeleri de classname ile sil</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_mission_tip">
+                <English>Uses deleteVehicle on mission-placed or script-spawned static objects/things whose classname matches the list (including ones created later).</English>
+                <Turkish>Listeyle classname'i eşleşen görevde yerleştirilmiş/sonradan oluşturulmuş statik objeleri deleteVehicle ile siler (sonradan oluşanlar dahil).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_0">
+                <English>Bushes</English>
+                <Turkish>Çalılar</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_1">
+                <English>Bushes + small trees</English>
+                <Turkish>Çalılar + küçük ağaçlar</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_2">
+                <English>All vegetation (bush, small tree, tree)</English>
+                <Turkish>Tüm bitki örtüsü (çalı, küçük ağaç, ağaç)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_3">
+                <English>Vegetation + rocks</English>
+                <Turkish>Bitki örtüsü + kayalar</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_4">
+                <English>Everything small (+ fences, walls, hide)</English>
+                <Turkish>Tüm küçük objeler (+ çit, duvar, hide)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_enabled">
+                <English>Thin out clusters</English>
+                <Turkish>Kümeleri seyrelt</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_enabled_tip">
+                <English>Finds dense groups of objects and removes part of them (100% = deletes the whole cluster).</English>
+                <Turkish>Yoğun obje gruplarını bulur ve bir kısmını siler (%100 = kümenin tamamını siler).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_percent">
+                <English>Removal amount in clusters (%)</English>
+                <Turkish>Kümelerden silinecek oran (%)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_percent_tip">
+                <English>0 = nothing, 100 = clusters are deleted completely. Selection is deterministic, same result after every restart.</English>
+                <Turkish>0 = hiçbir şey, 100 = kümeler tamamen silinir. Seçim deterministiktir, her yeniden başlatmada aynı sonuç çıkar.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_types">
+                <English>Cluster object types</English>
+                <Turkish>Küme obje türleri</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_types_tip">
+                <English>Which terrain object types count for clusters.</English>
+                <Turkish>Kümelerde hangi terrain obje türlerinin sayılacağı.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_cell">
+                <English>Cluster cell size (m)</English>
+                <Turkish>Küme hücre boyutu (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_cell_tip">
+                <English>The map is split into square cells of this size. Objects in the same cell form a cluster.</English>
+                <Turkish>Harita bu boyutta karelere bölünür. Aynı hücredeki objeler bir küme oluşturur.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_min">
+                <English>Minimum objects per cluster</English>
+                <Turkish>Küme için minimum obje sayısı</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_cluster_min_tip">
+                <English>A cell needs at least this many objects to count as a cluster (sparse cells are left alone).</English>
+                <Turkish>Bir hücrenin küme sayılması için en az bu kadar obje gerekir (seyrek hücrelere dokunulmaz).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_enabled">
+                <English>Remove objects next to roads</English>
+                <Turkish>Yol kenarındaki objeleri sil</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_enabled_tip">
+                <English>Deletes selected object types close to roads.</English>
+                <Turkish>Yola yakın seçili tür objeleri siler.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_range">
+                <English>Roadside range (m)</English>
+                <Turkish>Yol kenarı menzili (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_range_tip">
+                <English>Distance from the road centre line. 8-12 m clears a typical roadside strip.</English>
+                <Turkish>Yol orta çizgisinden uzaklık. 8-12 m tipik bir yol kenarı şeridini temizler.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_types">
+                <English>Roadside object types</English>
+                <Turkish>Yol kenarı obje türleri</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_types_tip">
+                <English>Which terrain object types are removed near roads.</English>
+                <Turkish>Yol kenarında hangi terrain obje türlerinin silineceği.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_tracks">
+                <English>Also treat tracks/trails as roads</English>
+                <Turkish>Patika/toprak yolları da yol say</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_tracks_tip">
+                <English>Off = only normal and main roads count.</English>
+                <Turkish>Kapalıysa sadece normal ve ana yollar sayılır.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_mode">
+                <English>Prevent destruction</English>
+                <Turkish>Yıkılmayı engelle</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_mode_tip">
+                <English>Sets allowDamage false on terrain objects near players (server): they can no longer be destroyed/felled. Buildings option can be heavy on big maps.</English>
+                <Turkish>Oyuncular çevresindeki terrain objelerine allowDamage false uygular (sunucu): artık yıkılamaz/devrilemezler. Bina seçeneği büyük haritalarda ağır olabilir.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_0">
+                <English>Off</English>
+                <Turkish>Kapalı</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_1">
+                <English>Vegetation only</English>
+                <Turkish>Sadece bitki örtüsü</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_2">
+                <English>All small objects (vegetation, rocks, fences, walls)</English>
+                <Turkish>Tüm küçük objeler (bitki, kaya, çit, duvar)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_3">
+                <English>Small objects + buildings</English>
+                <Turkish>Küçük objeler + binalar</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_freeze">
+                <English>Also disable simulation (small objects)</English>
+                <Turkish>Simülasyonu da kapat (küçük objeler)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_prot_freeze_tip">
+                <English>enableSimulationGlobal false on the protected small objects. Not applied to buildings (doors would stop working). Sends a network message per object.</English>
+                <Turkish>Korunan küçük objelere enableSimulationGlobal false uygular. Binalara uygulanmaz (kapılar çalışmazdı). Her obje için ağ mesajı gönderir.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_terrain_grid">
+                <English>Terrain grid</English>
+                <Turkish>Terrain grid</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_terrain_grid_tip">
+                <English>Terrain detail in metres: larger = less terrain/grass polygons = more FPS. 'Keep' does not touch your video settings. Client setting.</English>
+                <Turkish>Metre cinsinden terrain detayı: büyük sayı = daha az terrain/çim poligonu = daha çok FPS. 'Değiştirme' video ayarlarına dokunmaz. İstemci ayarı.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_keep">
+                <English>Don't change</English>
+                <Turkish>Değiştirme</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_50">
+                <English>50 m (fastest, no grass)</English>
+                <Turkish>50 m (en hızlı, çim yok)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_25">
+                <English>25 m</English>
+                <Turkish>25 m</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_125">
+                <English>12.5 m</English>
+                <Turkish>12.5 m</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_625">
+                <English>6.25 m</English>
+                <Turkish>6.25 m</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_grid_3125">
+                <English>3.125 m (most detailed)</English>
+                <Turkish>3.125 m (en detaylı)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_env_life">
+                <English>Disable ambient life</English>
+                <Turkish>Atmosfer yaşamını kapat</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_env_life_tip">
+                <English>Removes ambient animals/insects/birds (enableEnvironment). Unchecking restores them.</English>
+                <Turkish>Ortam hayvanlarını/böcekleri/kuşlarını kaldırır (enableEnvironment). İşareti kaldırınca geri gelir.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_env_sound">
+                <English>Disable ambient sounds</English>
+                <Turkish>Atmosfer seslerini kapat</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_env_sound_tip">
+                <English>Disables ambient environment sounds.</English>
+                <Turkish>Ortam seslerini kapatır.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_enabled">
+                <English>Enable geometry budget</English>
+                <Turkish>Geometri bütçesini etkinleştir</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_enabled_tip">
+                <English>Limits how far objects and their shadows are rendered. Scripts cannot edit model polygons; this reduces how many object/shadow polygons are drawn.</English>
+                <Turkish>Objelerin ve gölgelerinin ne kadar uzağa çizileceğini sınırlar. Script ile model poligonları düzenlenemez; bu ayar çizilen obje/gölge poligon sayısını azaltır.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_obj">
+                <English>Object view distance (m)</English>
+                <Turkish>Obje görüş mesafesi (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_obj_tip">
+                <English>Objects further away are not drawn (never more than your view distance).</English>
+                <Turkish>Daha uzaktaki objeler çizilmez (görüş mesafenden fazla olmaz).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_shadow">
+                <English>Shadow distance (m)</English>
+                <Turkish>Gölge mesafesi (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_geo_shadow_tip">
+                <English>Shadows are expensive: they draw every caster twice. Lower = faster.</English>
+                <Turkish>Gölgeler pahalıdır: her gölge düşüren objeyi iki kez çizer. Düşük = hızlı.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_key_inspect">
+                <English>Inspect object under crosshair (classname/model)</English>
+                <Turkish>Nişangahtaki objeyi incele (classname/model)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_key_scan">
+                <English>Scan objects around me (300 m, report to RPT/clipboard)</English>
+                <Turkish>Çevremi tara (300 m, rapor RPT/panoya)</Turkish>
+            </Key>
+        </Container>
+    </Package>
+</Project>

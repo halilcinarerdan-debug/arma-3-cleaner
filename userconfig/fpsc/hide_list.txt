@@ -1,0 +1,12 @@
+// FPS Cleaner - decor list (server: <arma 3 server>/userconfig/fpsc/hide_list.txt)
+// Enable the CBA setting "Also read userconfig\fpsc\hide_list.txt" to use this file.
+// One entry per line (commas also work). Use / instead of a trailing backslash.
+//   classname or model file   -> exact match            (jbad_barrel_01  /  bush_b.p3d)
+//   full model path           -> exact match            (jbad/data/foo.p3d)
+//   entry with *              -> "contains" match        (jbad_*   *bottle*   cup/terrains*)
+//   !entry                    -> NEVER hide (exception)  (!jbad_house_01)
+// Lines starting with // are comments.
+
+// jbad_*
+// *trash*
+// !jbad_house_01
