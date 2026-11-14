@@ -38,6 +38,7 @@
 *mil/flags/
 jbad_misc_concpipeline
 *jbad_trunk
+*misc_market/
 
 // ---- E) roadside barriers, road signs, lamps, airfield lights ----
 crash_barrier_f
