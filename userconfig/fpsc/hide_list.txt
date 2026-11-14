@@ -1,6 +1,7 @@
 // FPS Cleaner - decor list, made from the whole-map scans (vanilla A3 + JBAD / Lythium).
 // Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Also read userconfig\fpsc\hide_list.txt")
 // An entry that contains * is a "contains" match on the model path; "/" and "\" are the same here.
+// An entry starting with ! is an exception: it is never hidden, even if another entry matches.
 // Do not write a slash right before a star, a slash-star pair starts a block comment in this file.
 // Remove the leading // of a line to enable it, add // to a line to keep those objects.
 
@@ -12,6 +13,7 @@
 *gbr_clutter/
 *plants_f/plant/
 *jbad_veg/plants/plant/
+*jbad_veg/plants/clutter/
 
 // ---- B) bushes and loose rocks (~480k objects, the real FPS win) ----
 *plants_f/bush/
@@ -36,9 +38,7 @@
 *ind/pipes/
 *structures_f/wrecks/
 *mil/flags/
-jbad_misc_concpipeline
 *jbad_trunk
-*misc_market/
 
 // ---- E) roadside barriers, road signs, lamps, airfield lights ----
 crash_barrier_f
@@ -48,11 +48,15 @@ cncbarrier_stripes_f
 razorwire_f
 *signs_f/signt/
 *civ/lamps/
-*misc_lamp/
 *runwaylights/
 
+// ---- F) JBAD props: the whole jbad_misc pack (market stalls, tires, crates, garbage, house interiors, lamps ...) except power lines and the com tower ----
+*jbad_misc/
+!*misc_powerline/
+!*misc_com/
+
 // ---- C) optional, affects gameplay (cover), off by default ----
-// *jbad_structures/walls/
+// *jbad_structures/walls/   (JBAD walls, ~78k objects, the biggest thing left after trees)
 // *gbr_rocks1/muro
 // *gbr_rocks/muro
 // hbarrier_big_f
