@@ -17,6 +17,8 @@ if (!canSuspend) exitWith {
 };
 params [["_radius", 300, [0]], ["_filter", "", [""]], ["_maxRows", 250, [0]]];
 
+// SQF prints big numbers like 1.17024e+06; show them as "1.17 M" instead
+private _fmt = { if (_this >= 1000000) then { format ["%1 M", (round (_this / 10000)) / 100] } else { str _this } };
 private _whole = _radius <= 0;
 private _center = if (!isNil "player" && {!isNull player}) then { getPosATL player } else { [worldSize / 2, worldSize / 2, 0] };
 if (_whole) then { _center = [worldSize / 2, worldSize / 2, 0]; _radius = worldSize };
@@ -54,7 +56,7 @@ for "_i" from _cx0 to _cx1 do {
         } forEach _objs;
         _done = _done + 1;
         if (hasInterface && {(_done mod 20) == 0}) then {
-            hintSilent format ["FPS Cleaner scan: %1 / %2 chunks, %3 objects", _done, _total, _objects];
+            hintSilent format ["FPS Cleaner scan: %1 / %2 chunks, %3 objects", _done, _total, _objects call _fmt];
         };
     };
 };
@@ -103,11 +105,11 @@ private _byPrefix = createHashMap;
     _byPrefix set [_p, _e];
 } forEach _rows;
 private _prefixLines = [];
-{ _prefixLines pushBack [(_byPrefix get _x) select 1, format ["  %1: %2 models, %3 objects", _x, (_byPrefix get _x) select 0, (_byPrefix get _x) select 1]] } forEach (keys _byPrefix);
+{ _prefixLines pushBack [(_byPrefix get _x) select 1, format ["  %1: %2 models, %3 objects", _x, (_byPrefix get _x) select 0, ((_byPrefix get _x) select 1) call _fmt]] } forEach (keys _byPrefix);
 _prefixLines sort false;
 
 private _lines = [];
-_lines pushBack format ["[FPSC][SCAN] ===== %1 objects, %2 unique models (filter '%3') =====", _objects, count _rows, _filter];
+_lines pushBack format ["[FPSC][SCAN] ===== %1 objects, %2 unique models (filter '%3') =====", _objects call _fmt, count _rows, _filter];
 _lines pushBack "[FPSC][SCAN] -- by folder / pbo prefix --";
 { _lines pushBack ("[FPSC][SCAN] " + (_x select 1)) } forEach _prefixLines;
 _lines pushBack "[FPSC][SCAN] -- rows: count | model file | classnames | mod/addon | path | [HIDE = already matched by decor list] --";
@@ -130,6 +132,6 @@ diag_log ("[FPSC][SCAN] LIST: " + FPSC_lastScanList);
 if (hasInterface) then {
     copyToClipboard FPSC_lastScanReport;
     hintSilent "";
-    systemChat format ["[FPS Cleaner] scan finished: %1 objects, %2 models. Report copied to clipboard + RPT. Decor list: copyToClipboard FPSC_lastScanList", _objects, count _rows];
+    systemChat format ["[FPS Cleaner] scan finished: %1 objects, %2 models. Report copied to clipboard + RPT. Decor list: copyToClipboard FPSC_lastScanList", _objects call _fmt, count _rows];
 };
 FPSC_lastScanReport

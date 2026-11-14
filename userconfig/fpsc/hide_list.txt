@@ -1,12 +1,39 @@
-// FPS Cleaner - decor list (server: <arma 3 server>/userconfig/fpsc/hide_list.txt)
-// Enable the CBA setting "Also read userconfig\fpsc\hide_list.txt" to use this file.
-// One entry per line (commas also work). Use / instead of a trailing backslash.
-//   classname or model file   -> exact match            (jbad_barrel_01  /  bush_b.p3d)
-//   full model path           -> exact match            (jbad/data/foo.p3d)
-//   entry with *              -> "contains" match        (jbad_*   *bottle*   cup/terrains*)
-//   !entry                    -> NEVER hide (exception)  (!jbad_house_01)
-// Lines starting with // are comments.
+// FPS Cleaner - decor list, made from the whole-map scan (JBAD / Lythium / A3).
+// Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Also read userconfig\fpsc\hide_list.txt")
+// An entry that contains * is a "contains" match on the model path; "/" and "\" are the same here.
+// Do not write a slash right before a star, a slash-star pair starts a block comment in this file.
+// Remove the leading // of a line to enable it.
 
-// jbad_*
-// *trash*
-// !jbad_house_01
+// ---- A) grass clutter and small plants (~60k objects, nearly no gameplay effect) ----
+*plants_f/clutter/
+*c_grass
+*c_bigfallenbranches
+*gbr_clutter/
+*plants_f/plant/
+*jbad_veg/plants/plant/
+
+// ---- B) bushes and loose rocks (~480k objects, some concealment/cover is lost) ----
+*plants_f/bush/
+*jbad_veg/plants/bush/
+*gbr_bush/
+*rocks_f/
+*gbr_rocks/mono
+*gbr_rocks1/rock
+*gbr_rocks1/gran
+*gbr_rocks1/cono
+
+// ---- C) optional, affects gameplay (cover / buildings), off by default ----
+// *jbad_structures/walls/
+// *gbr_rocks1/muro
+// *gbr_rocks/muro
+// *lamp
+// barreltrash_f
+// sacks_goods_f
+// cratesshabby_f
+// crateswooden_f
+// woodenbox_f
+// metalbarrel_f
+// concretepipe_f
+
+// Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
+// Never hide: invisibleroadway_square_f (runway surface), stream*/rivers (water), jbad_house*, ffaa_casa*, power lines.

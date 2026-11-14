@@ -1,25 +1,27 @@
-// Example server preset for FPS Cleaner.
+// Example server preset for FPS Cleaner (tuned for the JBAD/Lythium map from your scan).
 // Copy the lines you want into  <arma 3 server>/userconfig/cba_settings.sqf
 // ("force" locks the value so players cannot override it).
 
 force FPSC_enabled = true;
-force FPSC_hide_mode = 0;               // 0 = server (hideObjectGlobal), 1 = local on each client
+// 1 = every client hides objects itself (recommended first: ~500k objects would flood the network/JIP in mode 0).
+// 0 = server hides them with hideObjectGlobal (also helps AI/collision, try it with a small radius first).
+force FPSC_hide_mode = 1;
 force FPSC_radius = 2500;               // metres around players, 0 = whole map
 force FPSC_budget = 4;                  // ms per frame
 
 force FPSC_hide_enabled = true;
-force FPSC_hide_file = true;
-force FPSC_hide_list = "jbad_*,cup_*bottle*,!jbad_house_01";
+force FPSC_hide_file = true;            // reads userconfig/fpsc/hide_list.txt
+force FPSC_hide_list = "";
 
-force FPSC_cluster_enabled = true;
-force FPSC_cluster_percent = 60;        // 100 = delete whole clusters
-force FPSC_cluster_types = 1;           // 0 bush | 1 bush+small tree | 2 vegetation | 3 +rocks | 4 all small
+force FPSC_cluster_enabled = true;      // thins the trees that stay (bushes are already in the list)
+force FPSC_cluster_percent = 50;        // 100 = delete whole clusters
+force FPSC_cluster_types = 2;           // 0 bush | 1 bush+small tree | 2 vegetation | 3 +rocks | 4 all small
 force FPSC_cluster_cell = 30;
 force FPSC_cluster_min = 6;
 
-force FPSC_road_enabled = true;
+force FPSC_road_enabled = false;
 force FPSC_road_range = 10;
 force FPSC_road_types = 2;
 
-force FPSC_prot_mode = 2;               // 0 off | 1 vegetation | 2 small objects | 3 + buildings
+force FPSC_prot_mode = 0;               // 0 off | 1 vegetation | 2 small objects | 3 + buildings
 force FPSC_prot_freeze = false;
