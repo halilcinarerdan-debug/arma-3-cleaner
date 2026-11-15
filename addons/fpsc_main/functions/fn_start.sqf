@@ -9,6 +9,7 @@ FPSC_s_rvHide = [];
 FPSC_s_rvProt = [];
 FPSC_s_rvFrz = [];
 FPSC_s_queue = [];
+FPSC_s_jobs = [];
 FPSC_s_qi = 0;
 FPSC_s_seen = createHashMap;
 FPSC_s_allQueued = false;

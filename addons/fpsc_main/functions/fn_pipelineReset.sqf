@@ -7,6 +7,7 @@ FPSC_s_hidden = [];
 FPSC_s_prot = [];
 FPSC_s_frozen = [];
 FPSC_s_queue = [];
+FPSC_s_jobs = [];
 FPSC_s_qi = 0;
 FPSC_s_seen = createHashMap;
 FPSC_s_allQueued = false;

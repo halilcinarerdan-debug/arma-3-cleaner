@@ -6,20 +6,9 @@ private _x0 = _cx * _size;
 private _y0 = _cy * _size;
 private _hide = [];
 
-// 1) decor list (classname / model matching)
+// 1) decor list (classname / model matching): queued, see FPSC_fnc_jobStep
 if (FPSC_r_hideOn) then {
-    {
-        private _mi = getModelInfo _x;
-        private _path = toLower (_mi select 1);
-        if !(_path isEqualTo "") then {
-            private _v = FPSC_r_verdict getOrDefault [_path, -1];
-            if (_v isEqualTo -1) then {
-                _v = [_path, toLower (_mi select 0)] call FPSC_fnc_modelVerdict;
-                FPSC_r_verdict set [_path, _v];
-            };
-            if (_v isEqualTo true) then { _hide pushBack _x };
-        };
-    } forEach ([FPSC_allTypes, _x0, _y0, _size] call FPSC_fnc_chunkObjects);
+    FPSC_s_jobs pushBack [[FPSC_allTypes, _x0, _y0, _size] call FPSC_fnc_chunkObjects, 0];
 };
 
 // 2) cluster thinning

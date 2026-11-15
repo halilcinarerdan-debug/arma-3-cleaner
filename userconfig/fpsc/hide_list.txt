@@ -109,6 +109,11 @@ razorwire_f
 *shellcrater_
 *disturbedsoil_
 
+// ---- I) RHS Terra Core 'Krayina' map: HAG grass + wheat objects (1.94 MILLION objects, 60 % of the map), forest clutter, curbs ----
+*hag_objects/
+*vegetation_f_enoch/clutter/
+*structures_f_enoch/infrastructure/pavements/
+
 // ---- C) optional, affects gameplay (cover), off by default ----
 // *jbad_structures/walls/   (JBAD walls, ~78k objects)
 // *structures_e/wall/   (CUP walls and fences, ~15k objects)
@@ -133,5 +138,11 @@ razorwire_f
 // *spe_structures/military/trenches/   (dugouts, ~5k)
 // *spe_hedgehog   (tank hedgehogs, ~1.7k)
 
+// *polewalls/   (Livonia pasture wire fences, ~196k objects, 189k of them are polewall_02_end_f; recommended if it is still heavy)
+// *woodenwall_   (Livonia wooden fences, ~5k)
+// *rhs_structures_misc/fences/   (RHS Terra Core fences, ~5k)
+// *rhs_structures_misc/walls/   (RHS Terra Core CNC walls, ~2k)
+
+// Do NOT hide: cluttercutter_* (invisible helpers that cut grass, hiding them brings the grass back), spe_invisiblepath_*.
 // Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
 // Never hide: invisibleroadway_square_f, roads_e/runway, spe_invisiblepath_* (AI paths!), stream*/rivers/spe_water/rivers (water), houses, power lines.

@@ -23,6 +23,7 @@ class CfgFunctions {
             class compileRules {};
             class enqueue {};
             class inspect {};
+            class jobStep {};
             class modelMap {};
             class modelVerdict {};
             class normPath {};

@@ -34,7 +34,8 @@ switch (FPSC_s_state) do {
             FPSC_s_nextEnq = diag_tickTime + 3;
             call FPSC_fnc_enqueue;
         };
-        while {FPSC_s_qi < count FPSC_s_queue && {(diag_tickTime - _t0) < _lim}} do {
+        [_t0 + _lim] call FPSC_fnc_jobStep;
+        while {(count FPSC_s_jobs) == 0 && {FPSC_s_qi < count FPSC_s_queue && {(diag_tickTime - _t0) < _lim}}} do {
             (FPSC_s_queue select FPSC_s_qi) call FPSC_fnc_processChunk;
             FPSC_s_qi = FPSC_s_qi + 1;
             FPSC_s_chunks = FPSC_s_chunks + 1;
