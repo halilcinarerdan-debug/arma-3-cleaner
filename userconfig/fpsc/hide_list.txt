@@ -80,6 +80,35 @@ razorwire_f
 *misc3/cncblock
 *misc/jezek
 
+// ---- H) Spearhead 1944 Normandy terrain (Livonia 'enoch' + 'ww2' assets): bushes, crops, rocks, stumps, hay, junk, signs, craters (~900k objects) ----
+*vegetation_f_enoch/bush/
+*vegetation_f_enoch/crop/
+*vegetation_f_exp/shrub/
+*vegetation_f_exp/crop/
+*vegetation_f_argo/bushes/
+*vegetation_f_enoch/tree/d_
+*rocks_f_enoch/
+*spe_haystack
+*spe_straw
+*spe_cow_dead
+*haybale_
+*strawstack_
+*manurepile_
+*trough_
+*spe_structures/items/
+*industrial/materials/
+*civilian/accessories/
+*props_f_enoch/
+*props_f_exp/
+*spe_structures/signs/
+*structures_f_enoch/signs/
+*structures_f_exp/signs/
+*structures_f_exp/infrastructure/pavements/
+*spe_water/riverdetails/
+*military/supplies/
+*shellcrater_
+*disturbedsoil_
+
 // ---- C) optional, affects gameplay (cover), off by default ----
 // *jbad_structures/walls/   (JBAD walls, ~78k objects)
 // *structures_e/wall/   (CUP walls and fences, ~15k objects)
@@ -97,5 +126,12 @@ razorwire_f
 // *structures_f/training/
 // *ind/cargo/
 
+// *spe_vegetation/bocage/   (Normandy hedgerows + earth mounds, ~204k objects, the signature cover of this map)
+// *spe_structures/walls/wood/   (wooden fences, ~30k)
+// *spe_structures/walls/stone/   (stone walls, ~86k)
+// *structures_f_enoch/walls/   (pole fences + stone walls, ~73k)
+// *spe_structures/military/trenches/   (dugouts, ~5k)
+// *spe_hedgehog   (tank hedgehogs, ~1.7k)
+
 // Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
-// Never hide: invisibleroadway_square_f and roads_e/runway (runway surfaces), stream*/rivers (water), houses, power lines.
+// Never hide: invisibleroadway_square_f, roads_e/runway, spe_invisiblepath_* (AI paths!), stream*/rivers/spe_water/rivers (water), houses, power lines.
