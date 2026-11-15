@@ -1,7 +1,8 @@
-// FPS Cleaner - decor list, made from the whole-map scans (vanilla A3 + JBAD / Lythium).
+// FPS Cleaner - decor list, made from the whole-map scans (vanilla A3, JBAD / Lythium, CUP terrain).
 // Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Also read userconfig\fpsc\hide_list.txt")
 // An entry that contains * is a "contains" match on the model path; "/" and "\" are the same here.
-// An entry starting with ! is an exception: it is never hidden, even if another entry matches.
+// An entry starting with ! is an exception: it is never hidden, even if another entry matches
+// (it does not apply to the roadside-removal setting, that one works by object type).
 // Do not write a slash right before a star, a slash-star pair starts a block comment in this file.
 // Remove the leading // of a line to enable it, add // to a line to keep those objects.
 
@@ -15,7 +16,7 @@
 *jbad_veg/plants/plant/
 *jbad_veg/plants/clutter/
 
-// ---- B) bushes and loose rocks (~480k objects, the real FPS win) ----
+// ---- B) bushes and loose rocks (the real FPS win) ----
 *plants_f/bush/
 *jbad_veg/plants/bush/
 *gbr_bush/
@@ -50,13 +51,39 @@ razorwire_f
 *civ/lamps/
 *runwaylights/
 
-// ---- F) JBAD props: the whole jbad_misc pack (market stalls, tires, crates, garbage, house interiors, lamps ...) except power lines and the com tower ----
+// ---- F) JBAD props: the whole jbad_misc pack except power lines and the com tower ----
 *jbad_misc/
 !*misc_powerline/
 !*misc_com/
 
+// ---- G) CUP terrain (Arma 2 'ca' assets): bushes, plants, rocks, trunks, junk, wrecks, market, pipes, signs, sidewalks, CNC blocks (~345k objects) ----
+*plants_e/bush/
+*plants_e/plant/
+*plants_e/misc/
+*rocks_e/
+*misc/ground_garbage
+*misc/junkpile
+*misc/garbage_
+*misc/palet
+*_wrecked
+*misc/datsun
+*misc/hiluxt
+*misc_market/
+*misc_garbage/
+*misc_construction/
+*misc_interier/
+*misc_lamp/
+*misc_well/
+*ind_pipes/
+*signs_e/
+*roads_e/sidewalks/
+*misc3/cncblock
+*misc/jezek
+
 // ---- C) optional, affects gameplay (cover), off by default ----
-// *jbad_structures/walls/   (JBAD walls, ~78k objects, the biggest thing left after trees)
+// *jbad_structures/walls/   (JBAD walls, ~78k objects)
+// *structures_e/wall/   (CUP walls and fences, ~15k objects)
+// *structures/wall/   (CUP industrial fences, ~2k objects)
 // *gbr_rocks1/muro
 // *gbr_rocks/muro
 // hbarrier_big_f
@@ -71,4 +98,4 @@ razorwire_f
 // *ind/cargo/
 
 // Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
-// Never hide: invisibleroadway_square_f (runway surface), stream*/rivers (water), houses, power lines, city walls.
+// Never hide: invisibleroadway_square_f and roads_e/runway (runway surfaces), stream*/rivers (water), houses, power lines.
