@@ -44,9 +44,11 @@ private _lbl = { _this apply { localize format ["STR_FPSC_%1", _x] } };
 // ---- 1. General (server settings, shared with all clients) ----
 ["FPSC_enabled", "CHECKBOX", "enabled", "1", true, 1] call _add;
 ["FPSC_hide_mode", "LIST", "mode", "1",
-    [[0, 1], ["mode_server", "mode_local"] call _lbl, 0], 1] call _add;
+    [[0, 1], ["mode_server", "mode_local"] call _lbl, 1], 1] call _add;
 ["FPSC_radius", "SLIDER", "radius", "1", [0, 10000, 2500, 0], 1] call _add;
 ["FPSC_budget", "SLIDER", "budget", "1", [1, 20, 4, 0], 1] call _add;
+["FPSC_global_rate", "SLIDER", "global_rate", "1", [20, 2000, 200, 0], 1] call _add;
+["FPSC_global_max", "SLIDER", "global_max", "1", [1000, 200000, 30000, 0], 1] call _add;
 ["FPSC_debug", "CHECKBOX", "debug", "1", false, 1] call _add;
 
 // ---- 2. Decor objects ----

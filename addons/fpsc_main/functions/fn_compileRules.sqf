@@ -9,6 +9,9 @@ FPSC_r_global = isServer && {!_modeLocal};
 FPSC_r_doProt = _on && isServer;
 FPSC_r_budget = ((FPSC_budget max 1) / 1000);
 FPSC_r_radius = FPSC_radius;
+// network protection (server): max object changes per second and max globally hidden objects
+FPSC_r_rate = if (isServer) then { FPSC_global_rate max 10 } else { 1000000000 };
+FPSC_r_gmax = FPSC_global_max;
 
 // ---- decor list ----
 FPSC_r_exact = createHashMap;     // model paths / file names (lower case)

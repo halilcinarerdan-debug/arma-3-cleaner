@@ -3,25 +3,40 @@
 private _t0 = diag_tickTime;
 private _lim = if (isNil "FPSC_r_budget") then { 0.004 } else { FPSC_r_budget };
 
+// token bucket for network-heavy changes (server only), at most one second worth of tokens
+if (isServer) then {
+    FPSC_s_tokens = (FPSC_s_tokens + ((_t0 - FPSC_s_lastTick) * FPSC_r_rate)) min FPSC_r_rate;
+    FPSC_s_lastTick = _t0;
+};
+
 switch (FPSC_s_state) do {
     case 1: {
-        while {(diag_tickTime - _t0) < _lim && {count FPSC_s_rvHide > 0}} do {
-            for "_i" from 1 to ((count FPSC_s_rvHide) min 100) do {
+        private _allow = if (isServer) then { floor FPSC_s_tokens } else { 1000000 };
+        private _start = _allow;
+        while {(diag_tickTime - _t0) < _lim && {_allow > 0 && {count FPSC_s_rvHide > 0}}} do {
+            private _c = ((count FPSC_s_rvHide) min 100) min _allow;
+            for "_i" from 1 to _c do {
                 private _o = FPSC_s_rvHide deleteAt ((count FPSC_s_rvHide) - 1);
                 if (isServer) then { _o hideObjectGlobal false };
                 _o hideObject false;
             };
+            _allow = _allow - _c;
         };
-        while {(diag_tickTime - _t0) < _lim && {count FPSC_s_rvProt > 0}} do {
-            for "_i" from 1 to ((count FPSC_s_rvProt) min 100) do {
+        while {(diag_tickTime - _t0) < _lim && {_allow > 0 && {count FPSC_s_rvProt > 0}}} do {
+            private _c = ((count FPSC_s_rvProt) min 100) min _allow;
+            for "_i" from 1 to _c do {
                 (FPSC_s_rvProt deleteAt ((count FPSC_s_rvProt) - 1)) allowDamage true;
             };
+            _allow = _allow - _c;
         };
-        while {(diag_tickTime - _t0) < _lim && {count FPSC_s_rvFrz > 0}} do {
-            for "_i" from 1 to ((count FPSC_s_rvFrz) min 100) do {
+        while {(diag_tickTime - _t0) < _lim && {_allow > 0 && {count FPSC_s_rvFrz > 0}}} do {
+            private _c = ((count FPSC_s_rvFrz) min 100) min _allow;
+            for "_i" from 1 to _c do {
                 (FPSC_s_rvFrz deleteAt ((count FPSC_s_rvFrz) - 1)) enableSimulationGlobal true;
             };
+            _allow = _allow - _c;
         };
+        if (isServer) then { FPSC_s_tokens = FPSC_s_tokens - (_start - _allow) };
         if (count FPSC_s_rvHide == 0 && {count FPSC_s_rvProt == 0 && {count FPSC_s_rvFrz == 0}}) then {
             call FPSC_fnc_compileRules;
             call FPSC_fnc_purgeMission;
@@ -35,7 +50,7 @@ switch (FPSC_s_state) do {
             call FPSC_fnc_enqueue;
         };
         [_t0 + _lim] call FPSC_fnc_jobStep;
-        while {(count FPSC_s_jobs) == 0 && {FPSC_s_qi < count FPSC_s_queue && {(diag_tickTime - _t0) < _lim}}} do {
+        while {(count FPSC_s_jobs) == 0 && {(count FPSC_s_pjobs) == 0 && {FPSC_s_qi < count FPSC_s_queue && {(diag_tickTime - _t0) < _lim}}}} do {
             (FPSC_s_queue select FPSC_s_qi) call FPSC_fnc_processChunk;
             FPSC_s_qi = FPSC_s_qi + 1;
             FPSC_s_chunks = FPSC_s_chunks + 1;

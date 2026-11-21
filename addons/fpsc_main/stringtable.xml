@@ -318,6 +318,22 @@
                 <English>Scan objects around me (300 m, report to RPT/clipboard)</English>
                 <Turkish>Çevremi tara (300 m, rapor RPT/panoya)</Turkish>
             </Key>
+            <Key ID="STR_FPSC_global_rate">
+                <English>Server mode: max object changes per second</English>
+                <Turkish>Sunucu modu: saniyede en fazla obje değişikliği</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_global_rate_tip">
+                <English>Every hideObjectGlobal / allowDamage / enableSimulationGlobal is a network message. A low value keeps server FPS and sync healthy (200 = 12000 objects per minute). Also limits the revert after a setting change.</English>
+                <Turkish>Her hideObjectGlobal / allowDamage / enableSimulationGlobal bir ağ mesajıdır. Düşük değer sunucu FPS'ini ve senkronizasyonu korur (200 = dakikada 12000 obje). Ayar değişince geri alma işlemini de sınırlar.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_global_max">
+                <English>Server mode: max hidden objects in total</English>
+                <Turkish>Sunucu modu: toplam gizlenebilecek en fazla obje</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_global_max_tip">
+                <English>Hard cap for hideObjectGlobal: JIP data and sync grow with every hidden object. When it is reached the server stops hiding more. For bigger lists use the local removal method.</English>
+                <Turkish>hideObjectGlobal için katı üst sınır: gizlenen her obje JIP verisini ve senkronizasyonu büyütür. Sınıra ulaşılınca sunucu daha fazla gizlemez. Daha büyük listeler için yerel silme yöntemini kullanın.</Turkish>
+            </Key>
         </Container>
     </Package>
 </Project>

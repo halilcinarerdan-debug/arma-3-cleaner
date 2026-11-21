@@ -8,6 +8,8 @@ force FPSC_enabled = true;
 force FPSC_hide_mode = 1;
 force FPSC_radius = 2500;               // metres around players, 0 = whole map
 force FPSC_budget = 4;                  // ms per frame
+force FPSC_global_rate = 200;           // server mode (hide_mode 0) only: max object changes per second, protects server FPS and sync
+force FPSC_global_max = 30000;          // server mode (hide_mode 0) only: hard cap of globally hidden objects (JIP data)
 
 force FPSC_hide_enabled = true;
 force FPSC_hide_file = false;           // true = also read userconfig/fpsc/hide_list.txt

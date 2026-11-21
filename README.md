@@ -55,6 +55,7 @@ Bir classname girdiğinizde mod onun `model` yolunu da bulur; aynı modeli kulla
 * Ayar değişince önce eski değişiklikler geri alınır, sonra yeniden uygulanır. Küme seçimi konuma göre deterministiktir.
 * **Silme yöntemi**: *Sunucu* = `hideObjectGlobal` (AI/çarpışma dahil herkes için kalkar, sunucu FPS'ine de yarar, ama on binlerce obje JIP/ağ
   yükü yaratabilir). *Yerel* = her oyuncu kendisi gizler (ağ yükü yok, sunucuda objeler durur).
+* **Dedicated sunucu / çok oyunculu:** *Sunucu* yöntemindeki her `hideObjectGlobal`/`allowDamage`/`enableSimulationGlobal` bir ağ mesajıdır. Bu yüzden saniyede en fazla `FPSC_global_rate` (varsayılan 200) değişiklik yapılır ve toplam gizlenen obje `FPSC_global_max` (varsayılan 30000) ile sınırlıdır. Yüz binlerce objelik listeler için **Yerel** yöntemi kullanın (varsayılan).
 * `Yıkılmayı engelle › + binalar` ve `simülasyonu kapat` büyük haritalarda ağırdır; önce bitki/küçük objelerle deneyin.
 * Yol kenarı menzili yol **orta çizgisine** göre ölçülür.
 
