@@ -331,8 +331,8 @@
                 <Turkish>Yerel liste: yerleşik listeyi kullan</Turkish>
             </Key>
             <Key ID="STR_FPSC_local_builtin_tip">
-                <English>Built-in list of heavy, visual-only decor (grass, wheat, bushes, crops, stumps, crater decals). Rocks, hay bales, walls and other cover objects are NOT included. Every player hides these on their own machine: no network traffic, no effect on collision.</English>
-                <Turkish>Ağır ve yalnızca görsel süs objelerinin (çim, buğday, çalı, ekin, kütük, çukur dekalleri) yerleşik listesi. Kaya, saman balyası, duvar gibi siper objeleri YOK. Her oyuncu bunları kendi bilgisayarında gizler: ağ yükü yok, çarpışmaya etkisi yok.</Turkish>
+                <English>Built-in list of heavy, visual-only decor (grass, wheat, crops, stumps, crater decals; bushes are not included). Rocks, hay bales, walls and other cover objects are NOT included. Every player hides these on their own machine: no network traffic, no effect on collision.</English>
+                <Turkish>Ağır ve yalnızca görsel süs objelerinin (çim, buğday, ekin, kütük, çukur dekalleri; çalılar dahil değil) yerleşik listesi. Kaya, saman balyası, duvar gibi siper objeleri YOK. Her oyuncu bunları kendi bilgisayarında gizler: ağ yükü yok, çarpışmaya etkisi yok.</Turkish>
             </Key>
             <Key ID="STR_FPSC_local_list">
                 <English>Local list: extra entries</English>
@@ -357,6 +357,14 @@
             <Key ID="STR_FPSC_road_vehRadius_tip">
                 <English>Radius around each crewed land vehicle in which the roadside is cleared ahead of it. Larger = the road is cleared further ahead of fast convoys.</English>
                 <Turkish>Her mürettebatlı kara aracının çevresinde yol kenarının önceden temizleneceği yarıçap. Büyük değer = hızlı konvoyların daha ilerisi önceden temizlenir.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_5">
+                <English>Trees only (no bushes)</English>
+                <Turkish>Sadece ağaçlar (çalı yok)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_preset_6">
+                <English>Everything small except bushes (trees, rocks, fences, walls, hide)</English>
+                <Turkish>Çalı hariç tüm küçük objeler (ağaç, kaya, çit, duvar, hide)</Turkish>
             </Key>
         </Container>
     </Package>

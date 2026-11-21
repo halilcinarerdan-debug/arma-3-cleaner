@@ -59,17 +59,17 @@ private _lbl = { _this apply { localize format ["STR_FPSC_%1", _x] } };
 ["FPSC_local_list", "EDITBOX", "local_list", "2", "", 1] call _add;
 
 // ---- 3. Clusters ----
-private _presetLabels = ["preset_0", "preset_1", "preset_2", "preset_3", "preset_4"] call _lbl;
+private _presetLabels = ["preset_0", "preset_1", "preset_2", "preset_3", "preset_4", "preset_5", "preset_6"] call _lbl;
 ["FPSC_cluster_enabled", "CHECKBOX", "cluster_enabled", "3", false, 1] call _add;
 ["FPSC_cluster_percent", "SLIDER", "cluster_percent", "3", [0, 100, 50, 0], 1] call _add;
-["FPSC_cluster_types", "LIST", "cluster_types", "3", [[0, 1, 2, 3, 4], _presetLabels, 1], 1] call _add;
+["FPSC_cluster_types", "LIST", "cluster_types", "3", [[0, 1, 2, 3, 4, 5, 6], _presetLabels, 5], 1] call _add;
 ["FPSC_cluster_cell", "SLIDER", "cluster_cell", "3", [10, 100, 30, 0], 1] call _add;
 ["FPSC_cluster_min", "SLIDER", "cluster_min", "3", [2, 60, 6, 0], 1] call _add;
 
 // ---- 4. Roadside ----
 ["FPSC_road_enabled", "CHECKBOX", "road_enabled", "4", false, 1] call _add;
 ["FPSC_road_range", "SLIDER", "road_range", "4", [0, 60, 10, 0], 1] call _add;
-["FPSC_road_types", "LIST", "road_types", "4", [[0, 1, 2, 3, 4], _presetLabels, 2], 1] call _add;
+["FPSC_road_types", "LIST", "road_types", "4", [[0, 1, 2, 3, 4, 5, 6], _presetLabels, 6], 1] call _add;
 ["FPSC_road_tracks", "CHECKBOX", "road_tracks", "4", false, 1] call _add;
 ["FPSC_road_veh", "CHECKBOX", "road_veh", "4", true, 1] call _add;
 ["FPSC_road_vehRadius", "SLIDER", "road_vehRadius", "4", [100, 1500, 400, 0], 1] call _add;

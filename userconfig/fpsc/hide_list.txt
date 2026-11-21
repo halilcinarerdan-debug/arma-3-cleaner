@@ -14,6 +14,10 @@
 // Do not write a slash right before a star: a slash-star pair starts a block comment in this file.
 // Lines starting with // are comments.
 
+// ---- BUSHES (concealment, no hard cover) were taken out of the built-in list on request. To hide them again, paste into the CBA LOCAL list box:
+//   *plants_f/bush/  *jbad_veg/plants/bush/  *gbr_bush/  *vegetation_f_enoch/bush/  *vegetation_f_exp/shrub/  *vegetation_f_argo/bushes/  *plants_e/bush/
+// (the cluster / roadside type presets 5 and 6 leave bushes alone, presets 0-4 include them)
+//
 // ---- COVER objects (bots can take cover behind them). Off by default. Paste into the CBA LOCAL list box to remove them for FPS ----
 //   *rocks_f/  *rocks_e/  *rocks_f_enoch/  *gbr_rocks/mono  *gbr_rocks1/rock  *gbr_rocks1/gran    boulders and rocks (Livonia ~230k, CUP ~91k)
 //   *haybale_  *strawstack_  *spe_haystack  *spe_straw                                              hay and straw bales

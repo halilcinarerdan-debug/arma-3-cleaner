@@ -3,7 +3,7 @@
 // ("force" locks the value so players cannot override it).
 //
 // SERVER list: small pure decor (litter, signs, lamps, pavements, wires), hidden by the server with hideObjectGlobal (rate limited + capped).
-// LOCAL list : heavy pure decor (grass, wheat, bushes, crops, stumps), hidden by every player on its own machine,
+// LOCAL list : heavy pure decor (grass, wheat, crops, stumps; bushes are NOT included), hidden by every player on its own machine,
 //              together with cluster thinning. No network traffic.
 // Both built-in lists contain ONLY decor: no rocks, walls, hay bales, crates, barrels or other cover objects.
 // They cover Lythium/JBAD, CUP, Spearhead Normandy, Krayina (RHS Terra Core) and Livonia.
@@ -25,14 +25,14 @@ force FPSC_global_max = 50000;          // server list: hard cap of globally hid
 
 force FPSC_cluster_enabled = true;      // thins the trees (local, every client)
 force FPSC_cluster_percent = 60;        // 100 = delete whole clusters
-force FPSC_cluster_types = 2;           // 0 bush | 1 bush+small tree | 2 vegetation | 3 +rocks | 4 all small
+force FPSC_cluster_types = 5;           // 0 bush | 1 bush+small tree | 2 vegetation | 3 +rocks | 4 all small | 5 trees only (no bushes) | 6 all small except bushes
 force FPSC_cluster_cell = 30;
 force FPSC_cluster_min = 6;
 
 // Roadside clearing for AI vehicles: runs on the SERVER (global), so the collision disappears for AI-driven vehicles.
 force FPSC_road_enabled = true;
 force FPSC_road_range = 10;             // metres from the road centre line (adjustable 0-60)
-force FPSC_road_types = 4;              // 0 bush | 1 +small tree | 2 vegetation | 3 +rocks | 4 all small (also fences, walls); use 2 to keep roadside walls as cover
+force FPSC_road_types = 6;              // 6 = trees, rocks, fences, walls, hide (no bushes); 2 = vegetation only (keeps roadside walls as cover); 4 = like 6 + bushes
 force FPSC_road_tracks = true;          // dirt tracks count as roads
 force FPSC_road_veh = true;             // only the roads around crewed land vehicles (AI or player)
 force FPSC_road_vehRadius = 400;        // metres around each vehicle, cleared ahead of it
