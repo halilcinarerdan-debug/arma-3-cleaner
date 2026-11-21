@@ -2,10 +2,11 @@
 // Copy the lines you want into  <arma 3 server>/userconfig/cba_settings.sqf
 // ("force" locks the value so players cannot override it).
 //
-// SERVER list: small, gameplay-relevant objects, hidden by the server with hideObjectGlobal (rate limited + capped).
-// LOCAL list : heavy visual objects (grass, wheat, bushes, rocks ...), hidden by every player on its own machine,
-//              together with cluster thinning and roadside removal. No network traffic.
-// Both built-in lists cover Lythium/JBAD, CUP, Spearhead Normandy and Krayina (RHS Terra Core).
+// SERVER list: small pure decor (litter, signs, lamps, pavements, wires), hidden by the server with hideObjectGlobal (rate limited + capped).
+// LOCAL list : heavy pure decor (grass, wheat, bushes, crops, stumps), hidden by every player on its own machine,
+//              together with cluster thinning. No network traffic.
+// Both built-in lists contain ONLY decor: no rocks, walls, hay bales, crates, barrels or other cover objects.
+// They cover Lythium/JBAD, CUP, Spearhead Normandy, Krayina (RHS Terra Core) and Livonia.
 
 force FPSC_enabled = true;
 force FPSC_radius = 2000;               // metres around players (server: all players, client: itself), 0 = whole map
@@ -17,7 +18,7 @@ force FPSC_hide_file = false;           // true = also read userconfig/fpsc/hide
 force FPSC_hide_list = "";              // extra SERVER entries, keep small
 force FPSC_hide_mission = false;
 force FPSC_local_builtin = true;        // built-in LOCAL list
-force FPSC_local_list = "";             // extra LOCAL entries (walls, bocage ... see hide_list.txt)
+force FPSC_local_list = "";             // extra LOCAL entries, e.g. *rocks_f_enoch/ (cover objects: see hide_list.txt)
 
 force FPSC_global_rate = 200;           // server list: max object changes per second (protects server FPS and sync)
 force FPSC_global_max = 50000;          // server list: hard cap of globally hidden objects (JIP data)
@@ -31,7 +32,7 @@ force FPSC_cluster_min = 6;
 // Roadside clearing for AI vehicles: runs on the SERVER (global), so the collision disappears for AI-driven vehicles.
 force FPSC_road_enabled = true;
 force FPSC_road_range = 10;             // metres from the road centre line (adjustable 0-60)
-force FPSC_road_types = 4;              // 0 bush | 1 +small tree | 2 vegetation | 3 +rocks | 4 all small (also fences, walls)
+force FPSC_road_types = 4;              // 0 bush | 1 +small tree | 2 vegetation | 3 +rocks | 4 all small (also fences, walls); use 2 to keep roadside walls as cover
 force FPSC_road_tracks = true;          // dirt tracks count as roads
 force FPSC_road_veh = true;             // only the roads around crewed land vehicles (AI or player)
 force FPSC_road_vehRadius = 400;        // metres around each vehicle, cleared ahead of it
