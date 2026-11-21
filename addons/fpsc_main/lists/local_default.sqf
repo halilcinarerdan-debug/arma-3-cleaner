@@ -1,4 +1,4 @@
-// FPS Cleaner built-in LOCAL (every client hides these itself: grass, bushes, crops, stumps, hag objects, debris decals ...) decor list.
+// FPS Cleaner built-in LOCAL (every client hides these itself: grass, wheat, crops, stumps, hag objects, debris decals ...) decor list.
 // RULE: only pure decor is listed. Things bots can take cover behind (rocks, walls, hay bales, crates, barrels, pipes, wrecks,
 // barriers, timber) and important objects are NOT in here, see the optional lines in userconfig/fpsc/hide_list.txt.
 // Syntax: see FPSC_fnc_parseRules (* = contains, ! = exception). Edit + repack the PBO to change it, or use the CBA "extra entries" boxes.
