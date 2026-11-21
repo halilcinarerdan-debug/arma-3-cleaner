@@ -1,148 +1,23 @@
-// FPS Cleaner - decor list, made from the whole-map scans (vanilla A3, JBAD / Lythium, CUP terrain).
-// Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Also read userconfig\fpsc\hide_list.txt")
-// An entry that contains * is a "contains" match on the model path; "/" and "\" are the same here.
-// An entry starting with ! is an exception: it is never hidden, even if another entry matches
-// (it does not apply to the roadside-removal setting, that one works by object type).
-// Do not write a slash right before a star, a slash-star pair starts a block comment in this file.
-// Remove the leading // of a line to enable it, add // to a line to keep those objects.
+// FPS Cleaner - EXTRA entries for the SERVER list (hideObjectGlobal).
+// Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Server list: also read userconfig\fpsc\hide_list.txt")
+// The big lists for Lythium/JBAD, CUP, Spearhead Normandy and Krayina are BUILT INTO the mod (addons/fpsc_main/lists/):
+//   server_default.sqf  -> small, gameplay-relevant objects, hidden by the server (rate limited + capped)
+//   local_default.sqf   -> heavy visual objects (grass, bushes, rocks, hag objects ...), hidden by every player locally
+// Put only SMALL additions here. Heavy additions belong in the CBA "Local list: extra entries" box.
+//
+// Syntax: one entry per line (commas also work)
+//   classname or model file   -> exact match            (jbad_barrel_01  /  bush_b.p3d)
+//   entry with *              -> "contains" match        (jbad_*   *bottle*)   "/" and "\" are the same
+//   !entry                    -> NEVER hide (exception)  (!jbad_house_01)
+// Do not write a slash right before a star: a slash-star pair starts a block comment in this file.
+// Lines starting with // are comments.
 
-// ---- A) grass clutter, leaf decals, small plants ----
-*plants_f/clutter/
-*plants_f/_leafs/
-*c_grass
-*c_bigfallenbranches
-*gbr_clutter/
-*plants_f/plant/
-*jbad_veg/plants/plant/
-*jbad_veg/plants/clutter/
-
-// ---- B) bushes and loose rocks (the real FPS win) ----
-*plants_f/bush/
-*jbad_veg/plants/bush/
-*gbr_bush/
-*rocks_f/
-*gbr_rocks/mono
-*gbr_rocks1/rock
-*gbr_rocks1/gran
-*gbr_rocks1/cono
-
-// ---- D) vanilla junk / props (garbage, market stuff, camping, benches, pipes, wrecks ...) ----
-*civ/garbage/
-*civ/market/
-*civ/constructions/
-*civ/camping/
-*civ/accessories/
-*civ/pavements/
-*items/vessels/
-*scrapyard/
-*sportsgrounds/
-*ind/pipes/
-*structures_f/wrecks/
-*mil/flags/
-*jbad_trunk
-
-// ---- E) roadside barriers, road signs, lamps, airfield lights ----
-crash_barrier_f
-cncbarriermedium4_f
-cncbarriermedium_f
-cncbarrier_stripes_f
-razorwire_f
-*signs_f/signt/
-*civ/lamps/
-*runwaylights/
-
-// ---- F) JBAD props: the whole jbad_misc pack except power lines and the com tower ----
-*jbad_misc/
-!*misc_powerline/
-!*misc_com/
-
-// ---- G) CUP terrain (Arma 2 'ca' assets): bushes, plants, rocks, trunks, junk, wrecks, market, pipes, signs, sidewalks, CNC blocks (~345k objects) ----
-*plants_e/bush/
-*plants_e/plant/
-*plants_e/misc/
-*rocks_e/
-*misc/ground_garbage
-*misc/junkpile
-*misc/garbage_
-*misc/palet
-*_wrecked
-*misc/datsun
-*misc/hiluxt
-*misc_market/
-*misc_garbage/
-*misc_construction/
-*misc_interier/
-*misc_lamp/
-*misc_well/
-*ind_pipes/
-*signs_e/
-*roads_e/sidewalks/
-*misc3/cncblock
-*misc/jezek
-
-// ---- H) Spearhead 1944 Normandy terrain (Livonia 'enoch' + 'ww2' assets): bushes, crops, rocks, stumps, hay, junk, signs, craters (~900k objects) ----
-*vegetation_f_enoch/bush/
-*vegetation_f_enoch/crop/
-*vegetation_f_exp/shrub/
-*vegetation_f_exp/crop/
-*vegetation_f_argo/bushes/
-*vegetation_f_enoch/tree/d_
-*rocks_f_enoch/
-*spe_haystack
-*spe_straw
-*spe_cow_dead
-*haybale_
-*strawstack_
-*manurepile_
-*trough_
-*spe_structures/items/
-*industrial/materials/
-*civilian/accessories/
-*props_f_enoch/
-*props_f_exp/
-*spe_structures/signs/
-*structures_f_enoch/signs/
-*structures_f_exp/signs/
-*structures_f_exp/infrastructure/pavements/
-*spe_water/riverdetails/
-*military/supplies/
-*shellcrater_
-*disturbedsoil_
-
-// ---- I) RHS Terra Core 'Krayina' map: HAG grass + wheat objects (1.94 MILLION objects, 60 % of the map), forest clutter, curbs ----
-*hag_objects/
-*vegetation_f_enoch/clutter/
-*structures_f_enoch/infrastructure/pavements/
-
-// ---- C) optional, affects gameplay (cover), off by default ----
-// *jbad_structures/walls/   (JBAD walls, ~78k objects)
-// *structures_e/wall/   (CUP walls and fences, ~15k objects)
-// *structures/wall/   (CUP industrial fences, ~2k objects)
-// *gbr_rocks1/muro
-// *gbr_rocks/muro
-// hbarrier_big_f
-// hbarrier_5_f
-// hbarrier_3_f
-// hbarrier_1_f
-// hbarriertower_f
-// mound01_8m_f
-// mound02_8m_f
-// *mil/bagfence/
-// *structures_f/training/
-// *ind/cargo/
-
-// *spe_vegetation/bocage/   (Normandy hedgerows + earth mounds, ~204k objects, the signature cover of this map)
-// *spe_structures/walls/wood/   (wooden fences, ~30k)
-// *spe_structures/walls/stone/   (stone walls, ~86k)
-// *structures_f_enoch/walls/   (pole fences + stone walls, ~73k)
-// *spe_structures/military/trenches/   (dugouts, ~5k)
-// *spe_hedgehog   (tank hedgehogs, ~1.7k)
-
-// *polewalls/   (Livonia pasture wire fences, ~196k objects, 189k of them are polewall_02_end_f; recommended if it is still heavy)
-// *woodenwall_   (Livonia wooden fences, ~5k)
-// *rhs_structures_misc/fences/   (RHS Terra Core fences, ~5k)
-// *rhs_structures_misc/walls/   (RHS Terra Core CNC walls, ~2k)
-
-// Do NOT hide: cluttercutter_* (invisible helpers that cut grass, hiding them brings the grass back), spe_invisiblepath_*.
-// Trees are NOT listed on purpose: thin them with the cluster setting instead (50-60 % keeps forests but cuts the load).
-// Never hide: invisibleroadway_square_f, roads_e/runway, spe_invisiblepath_* (AI paths!), stream*/rivers/spe_water/rivers (water), houses, power lines.
+// Optional, affects gameplay (cover). Paste into the CBA LOCAL list box if you want them gone:
+//   *jbad_structures/walls/           JBAD walls, ~78k objects
+//   *structures_e/wall/               CUP walls and fences, ~15k
+//   *polewalls/                       Livonia pasture wire fences (Krayina ~196k, Normandy ~37k)
+//   *spe_vegetation/bocage/           Normandy hedgerows + mounds, ~204k
+//   *spe_structures/walls/wood/       Normandy wooden fences, ~30k
+//   *spe_structures/walls/stone/      Normandy stone walls, ~86k
+//   hbarrier_big_f                    HESCO barriers
+// Never hide: cluttercutter_* (brings the grass back), spe_invisiblepath_* (AI paths), invisibleroadway_square_f, roads_e/runway, water/river models.

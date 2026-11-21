@@ -29,6 +29,7 @@ class CfgFunctions {
             class normPath {};
             class onSettingChanged {};
             class parseList {};
+            class parseRules {};
             class pipelineReset {};
             class pipelineStep {};
             class processChunk {};

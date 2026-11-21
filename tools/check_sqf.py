@@ -60,7 +60,7 @@ for fn in sorted(set(re.findall(r"FPSC_fnc_(\w+)", allsrc))):
 pre = (root / "XEH_preInit.sqf").read_text()
 registered = set(re.findall(r'\["(FPSC_\w+)", "(?:CHECKBOX|LIST|SLIDER|EDITBOX)"', pre))
 used = set(re.findall(r"\bFPSC_[a-z]+_?[a-zA-Z_]*\b", allsrc))
-settings_like = {u for u in used if re.match(r"FPSC_(enabled|hide_|cluster_|road_|prot_|terrain_|env_|geo_|radius|budget|debug)", u)}
+settings_like = {u for u in used if re.match(r"FPSC_(enabled|hide_|local_|cluster_|road_|prot_|terrain_|env_|geo_|radius|budget|debug)", u)}
 settings_like -= {u for u in settings_like if u.startswith(("FPSC_r_", "FPSC_s_", "FPSC_c_"))}
 for u in sorted(settings_like - registered): errors.append(f"setting variable {u} is read but never registered")
 for u in sorted(registered - used): errors.append(f"setting {u} is registered but never read")

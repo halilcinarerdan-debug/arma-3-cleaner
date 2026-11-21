@@ -85,7 +85,7 @@ private _rows = [];
 
     private _haystack = toLower (_clean + " " + (_classes joinString " ") + " " + _mod);
     if ((count _filters == 0) || {(_filters findIf { (_haystack find _x) >= 0 }) >= 0}) then {
-        private _hit = if (isNil "FPSC_r_exact") then { false } else { [_clean, toLower (_g select 1)] call FPSC_fnc_modelVerdict };
+        private _hit = if (isNil "FPSC_r_srv") then { false } else { ([_clean, toLower (_g select 1), FPSC_r_srv] call FPSC_fnc_modelVerdict) || {[_clean, toLower (_g select 1), FPSC_r_loc] call FPSC_fnc_modelVerdict} };
         _rows pushBack [_g select 0, _g select 1, _classes joinString "|", _mod, _clean, _prefix, _hit];
     };
 } forEach (values _groups);

@@ -43,19 +43,20 @@ private _lbl = { _this apply { localize format ["STR_FPSC_%1", _x] } };
 
 // ---- 1. General (server settings, shared with all clients) ----
 ["FPSC_enabled", "CHECKBOX", "enabled", "1", true, 1] call _add;
-["FPSC_hide_mode", "LIST", "mode", "1",
-    [[0, 1], ["mode_server", "mode_local"] call _lbl, 1], 1] call _add;
 ["FPSC_radius", "SLIDER", "radius", "1", [0, 10000, 2500, 0], 1] call _add;
 ["FPSC_budget", "SLIDER", "budget", "1", [1, 20, 4, 0], 1] call _add;
 ["FPSC_global_rate", "SLIDER", "global_rate", "1", [20, 2000, 200, 0], 1] call _add;
-["FPSC_global_max", "SLIDER", "global_max", "1", [1000, 200000, 30000, 0], 1] call _add;
+["FPSC_global_max", "SLIDER", "global_max", "1", [1000, 200000, 50000, 0], 1] call _add;
 ["FPSC_debug", "CHECKBOX", "debug", "1", false, 1] call _add;
 
 // ---- 2. Decor objects ----
 ["FPSC_hide_enabled", "CHECKBOX", "hide_enabled", "2", true, 1] call _add;
+["FPSC_hide_builtin", "CHECKBOX", "hide_builtin", "2", true, 1] call _add;
 ["FPSC_hide_list", "EDITBOX", "hide_list", "2", "", 1] call _add;
 ["FPSC_hide_file", "CHECKBOX", "hide_file", "2", false, 1] call _add;
 ["FPSC_hide_mission", "CHECKBOX", "hide_mission", "2", false, 1] call _add;
+["FPSC_local_builtin", "CHECKBOX", "local_builtin", "2", true, 1] call _add;
+["FPSC_local_list", "EDITBOX", "local_list", "2", "", 1] call _add;
 
 // ---- 3. Clusters ----
 private _presetLabels = ["preset_0", "preset_1", "preset_2", "preset_3", "preset_4"] call _lbl;

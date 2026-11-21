@@ -42,29 +42,13 @@
                 <English>Master switch (server setting). Turning it off restores every object this mod hid or protected.</English>
                 <Turkish>Ana şalter (sunucu ayarı). Kapatınca modun gizlediği/korumaya aldığı tüm objeler eski haline döner.</Turkish>
             </Key>
-            <Key ID="STR_FPSC_mode">
-                <English>Removal method</English>
-                <Turkish>Silme yöntemi</Turkish>
-            </Key>
-            <Key ID="STR_FPSC_mode_tip">
-                <English>Server: hideObjectGlobal, objects disappear for everyone incl. AI/collision (best for server performance, but heavy on network/JIP with very large counts). Local: every client hides objects itself (no network cost).</English>
-                <Turkish>Sunucu: hideObjectGlobal, objeler herkes için (AI/çarpışma dahil) kaybolur. Çok büyük sayılarda ağ/JIP yükü olabilir. Yerel: her oyuncu kendi tarafında gizler (ağ yükü yok).</Turkish>
-            </Key>
-            <Key ID="STR_FPSC_mode_server">
-                <English>Server (hideObjectGlobal)</English>
-                <Turkish>Sunucu (hideObjectGlobal)</Turkish>
-            </Key>
-            <Key ID="STR_FPSC_mode_local">
-                <English>Local on every client (hideObject)</English>
-                <Turkish>Her istemcide yerel (hideObject)</Turkish>
-            </Key>
             <Key ID="STR_FPSC_radius">
                 <English>Processing radius around players (m)</English>
                 <Turkish>Oyuncular çevresinde işlem yarıçapı (m)</Turkish>
             </Key>
             <Key ID="STR_FPSC_radius_tip">
-                <English>Only the map around players is processed (in chunks, as they move). 0 = whole map (slow start).</English>
-                <Turkish>Sadece oyuncuların çevresi işlenir (oyuncu hareket ettikçe parça parça). 0 = tüm harita (yavaş başlar).</Turkish>
+                <English>Only the map around players is processed (in chunks, as they move); the server around all players, a client around itself. 0 = whole map (slow start).</English>
+                <Turkish>Sadece oyuncuların çevresi işlenir (oyuncu hareket ettikçe parça parça); sunucu tüm oyuncuların, istemci kendi çevresini işler. 0 = tüm harita (yavaş başlar).</Turkish>
             </Key>
             <Key ID="STR_FPSC_budget">
                 <English>Time budget per frame (ms)</English>
@@ -83,36 +67,36 @@
                 <Turkish>Kural derleme ve ilerleme satırlarını [FPSC] önekiyle RPT dosyasına yazar.</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_enabled">
-                <English>Delete decor objects from list</English>
-                <Turkish>Listedeki süs objelerini sil</Turkish>
+                <English>Delete decor objects (lists)</English>
+                <Turkish>Süs objelerini sil (listeler)</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_enabled_tip">
-                <English>Hides terrain objects that match the decor list below.</English>
-                <Turkish>Aşağıdaki listeyle eşleşen terrain objelerini gizler.</Turkish>
+                <English>Master switch for both decor lists (server list and local list).</English>
+                <Turkish>İki süs listesinin (sunucu ve yerel) ana şalteri.</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_list">
-                <English>Decor list</English>
-                <Turkish>Süs objesi listesi</Turkish>
+                <English>Server list: extra entries</English>
+                <Turkish>Sunucu listesi: ek girişler</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_list_tip">
-                <English>Separated by comma/semicolon/space. Plain entry = classname or model file/path (jbad_barrel_01). Entry with * = contains match (jbad_*, *bottle*). Prefix ! = never hide. Get entries from the scan tool (Ctrl+Shift+O / Ctrl+Shift+I).</English>
-                <Turkish>Virgül/noktalı virgül/boşlukla ayır. Düz giriş = classname veya model dosyası/yolu (jbad_barrel_01). * içeren giriş = içeriyorsa eşleşir (jbad_*, *bottle*). Başında ! = asla gizleme. Girişleri tarama aracından al (Ctrl+Shift+O / Ctrl+Shift+I).</Turkish>
+                <English>Extra entries for the server list (hideObjectGlobal). Rate limited and capped, keep it small. Syntax: separated by comma/semicolon/space. Plain entry = classname or model file/path (jbad_barrel_01). Entry with * = contains match (jbad_*, *bottle*). Prefix ! = never hide.</English>
+                <Turkish>Sunucu listesine (hideObjectGlobal) ek girişler. Hız ve toplam sınırı vardır, küçük tutun. Söz dizimi: virgül/noktalı virgül/boşlukla ayır. Düz giriş = classname veya model dosyası/yolu (jbad_barrel_01). * içeren giriş = içeriyorsa eşleşir (jbad_*, *bottle*). Başında ! = asla gizleme.</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_file">
-                <English>Also read userconfig\fpsc\hide_list.txt</English>
-                <Turkish>userconfig\fpsc\hide_list.txt dosyasını da oku</Turkish>
+                <English>Server list: also read userconfig\fpsc\hide_list.txt</English>
+                <Turkish>Sunucu listesi: userconfig\fpsc\hide_list.txt dosyasını da oku</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_file_tip">
-                <English>Reads extra entries from that file (one per line, // comments, use / instead of trailing backslash). Handy for long lists.</English>
-                <Turkish>Ek girişleri bu dosyadan okur (satır başına bir tane, // yorum, sondaki ters eğik çizgi yerine / kullan). Uzun listeler için.</Turkish>
+                <English>Reads extra entries from that file on the server (one per line, // comments, use / instead of a trailing backslash).</English>
+                <Turkish>Sunucudaki bu dosyadan ek girişleri okur (satır başına bir tane, // yorum, sondaki ters eğik çizgi yerine / kullan).</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_mission">
-                <English>Also delete mission/spawned objects by classname</English>
-                <Turkish>Görev/sonradan oluşan objeleri de classname ile sil</Turkish>
+                <English>Server list: also delete mission/spawned objects by classname</English>
+                <Turkish>Sunucu listesi: görev/sonradan oluşan objeleri de classname ile sil</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_mission_tip">
-                <English>Uses deleteVehicle on mission-placed or script-spawned static objects/things whose classname matches the list (including ones created later).</English>
-                <Turkish>Listeyle classname'i eşleşen görevde yerleştirilmiş/sonradan oluşturulmuş statik objeleri deleteVehicle ile siler (sonradan oluşanlar dahil).</Turkish>
+                <English>Uses deleteVehicle on mission-placed or script-spawned static objects/things whose classname matches the server list (including ones created later).</English>
+                <Turkish>Sunucu listesiyle classname'i eşleşen görevde yerleştirilmiş/sonradan oluşturulmuş statik objeleri deleteVehicle ile siler (sonradan oluşanlar dahil).</Turkish>
             </Key>
             <Key ID="STR_FPSC_preset_0">
                 <English>Bushes</English>
@@ -135,12 +119,12 @@
                 <Turkish>Tüm küçük objeler (+ çit, duvar, hide)</Turkish>
             </Key>
             <Key ID="STR_FPSC_cluster_enabled">
-                <English>Thin out clusters</English>
-                <Turkish>Kümeleri seyrelt</Turkish>
+                <English>Thin out clusters (local)</English>
+                <Turkish>Kümeleri seyrelt (yerel)</Turkish>
             </Key>
             <Key ID="STR_FPSC_cluster_enabled_tip">
-                <English>Finds dense groups of objects and removes part of them (100% = deletes the whole cluster).</English>
-                <Turkish>Yoğun obje gruplarını bulur ve bir kısmını siler (%100 = kümenin tamamını siler).</Turkish>
+                <English>Finds dense groups of objects and removes part of them (100% = deletes the whole cluster). Done locally by every player.</English>
+                <Turkish>Yoğun obje gruplarını bulur ve bir kısmını siler (%100 = kümenin tamamını siler). Her oyuncu kendi tarafında yapar.</Turkish>
             </Key>
             <Key ID="STR_FPSC_cluster_percent">
                 <English>Removal amount in clusters (%)</English>
@@ -175,12 +159,12 @@
                 <Turkish>Bir hücrenin küme sayılması için en az bu kadar obje gerekir (seyrek hücrelere dokunulmaz).</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_enabled">
-                <English>Remove objects next to roads</English>
-                <Turkish>Yol kenarındaki objeleri sil</Turkish>
+                <English>Remove objects next to roads (local)</English>
+                <Turkish>Yol kenarındaki objeleri sil (yerel)</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_enabled_tip">
-                <English>Deletes selected object types close to roads.</English>
-                <Turkish>Yola yakın seçili tür objeleri siler.</Turkish>
+                <English>Hides selected object types close to roads. Done locally by every player; works by object type, not by classname.</English>
+                <Turkish>Yola yakın seçili tür objeleri gizler. Her oyuncu kendi tarafında yapar; classname'e değil obje türüne göre çalışır.</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_range">
                 <English>Roadside range (m)</English>
@@ -319,20 +303,44 @@
                 <Turkish>Çevremi tara (300 m, rapor RPT/panoya)</Turkish>
             </Key>
             <Key ID="STR_FPSC_global_rate">
-                <English>Server mode: max object changes per second</English>
-                <Turkish>Sunucu modu: saniyede en fazla obje değişikliği</Turkish>
+                <English>Server list: max object changes per second</English>
+                <Turkish>Sunucu listesi: saniyede en fazla obje değişikliği</Turkish>
             </Key>
             <Key ID="STR_FPSC_global_rate_tip">
                 <English>Every hideObjectGlobal / allowDamage / enableSimulationGlobal is a network message. A low value keeps server FPS and sync healthy (200 = 12000 objects per minute). Also limits the revert after a setting change.</English>
                 <Turkish>Her hideObjectGlobal / allowDamage / enableSimulationGlobal bir ağ mesajıdır. Düşük değer sunucu FPS'ini ve senkronizasyonu korur (200 = dakikada 12000 obje). Ayar değişince geri alma işlemini de sınırlar.</Turkish>
             </Key>
             <Key ID="STR_FPSC_global_max">
-                <English>Server mode: max hidden objects in total</English>
-                <Turkish>Sunucu modu: toplam gizlenebilecek en fazla obje</Turkish>
+                <English>Server list: max hidden objects in total</English>
+                <Turkish>Sunucu listesi: toplam gizlenebilecek en fazla obje</Turkish>
             </Key>
             <Key ID="STR_FPSC_global_max_tip">
-                <English>Hard cap for hideObjectGlobal: JIP data and sync grow with every hidden object. When it is reached the server stops hiding more. For bigger lists use the local removal method.</English>
-                <Turkish>hideObjectGlobal için katı üst sınır: gizlenen her obje JIP verisini ve senkronizasyonu büyütür. Sınıra ulaşılınca sunucu daha fazla gizlemez. Daha büyük listeler için yerel silme yöntemini kullanın.</Turkish>
+                <English>Hard cap for hideObjectGlobal: JIP data and sync grow with every hidden object. When it is reached the server stops hiding more. Move heavy entries to the local list.</English>
+                <Turkish>hideObjectGlobal için katı üst sınır: gizlenen her obje JIP verisini ve senkronizasyonu büyütür. Sınıra ulaşılınca sunucu daha fazla gizlemez. Ağır girişleri yerel listeye taşıyın.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_builtin">
+                <English>Server list: use the built-in list</English>
+                <Turkish>Sunucu listesi: yerleşik listeyi kullan</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_hide_builtin_tip">
+                <English>Built-in list of small gameplay-relevant objects (junk, props, barriers, signs, lamps, wrecks, pavements) for Lythium/JBAD, CUP, Normandy, Krayina. Hidden by the SERVER for everyone with hideObjectGlobal (also removes collision).</English>
+                <Turkish>Küçük ve oynanışı etkileyen objelerin (çöp, props, bariyer, tabela, lamba, enkaz, kaldırım) yerleşik listesi: Lythium/JBAD, CUP, Normandiya, Krayina. SUNUCU tarafından herkes için hideObjectGlobal ile gizlenir (çarpışma da kalkar).</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_local_builtin">
+                <English>Local list: use the built-in list</English>
+                <Turkish>Yerel liste: yerleşik listeyi kullan</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_local_builtin_tip">
+                <English>Built-in list of heavy, visual-only objects (grass, wheat, bushes, rocks, crops, hay, stumps, huge prop groups). Every player hides these on their own machine: no network traffic, no effect on collision.</English>
+                <Turkish>Ağır ve yalnızca görsel objelerin (çim, buğday, çalı, kaya, ekin, saman, kütük, çok kalabalık props grupları) yerleşik listesi. Her oyuncu bunları kendi bilgisayarında gizler: ağ yükü yok, çarpışmaya etkisi yok.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_local_list">
+                <English>Local list: extra entries</English>
+                <Turkish>Yerel liste: ek girişler</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_local_list_tip">
+                <English>Extra entries hidden locally by every player (hideObject). Syntax: separated by comma/semicolon/space. Plain entry = classname or model file/path (jbad_barrel_01). Entry with * = contains match (jbad_*, *bottle*). Prefix ! = never hide.</English>
+                <Turkish>Her oyuncunun yerel olarak (hideObject) gizlediği ek girişler. Söz dizimi: virgül/noktalı virgül/boşlukla ayır. Düz giriş = classname veya model dosyası/yolu (jbad_barrel_01). * içeren giriş = içeriyorsa eşleşir (jbad_*, *bottle*). Başında ! = asla gizleme.</Turkish>
             </Key>
         </Container>
     </Package>
