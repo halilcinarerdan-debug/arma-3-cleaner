@@ -323,16 +323,16 @@
                 <Turkish>Sunucu listesi: yerleşik listeyi kullan</Turkish>
             </Key>
             <Key ID="STR_FPSC_hide_builtin_tip">
-                <English>Built-in list of small gameplay-relevant objects (junk, props, barriers, signs, lamps, wrecks, pavements) for Lythium/JBAD, CUP, Normandy, Krayina. Hidden by the SERVER for everyone with hideObjectGlobal (also removes collision).</English>
-                <Turkish>Küçük ve oynanışı etkileyen objelerin (çöp, props, bariyer, tabela, lamba, enkaz, kaldırım) yerleşik listesi: Lythium/JBAD, CUP, Normandiya, Krayina. SUNUCU tarafından herkes için hideObjectGlobal ile gizlenir (çarpışma da kalkar).</Turkish>
+                <English>Built-in list of small pure-decor objects (litter, signs, lamps, pavements, interiors, wires) for Lythium/JBAD, CUP, Normandy, Krayina, Livonia. Nothing bots can take cover behind. Hidden by the SERVER for everyone with hideObjectGlobal (also removes collision).</English>
+                <Turkish>Küçük, tamamen süs objelerinin (çöp, tabela, lamba, kaldırım, ev içi eşyalar, kablolar) yerleşik listesi: Lythium/JBAD, CUP, Normandiya, Krayina, Livonia. AI'ın siper alabileceği hiçbir şey yok. SUNUCU tarafından herkes için hideObjectGlobal ile gizlenir (çarpışma da kalkar).</Turkish>
             </Key>
             <Key ID="STR_FPSC_local_builtin">
                 <English>Local list: use the built-in list</English>
                 <Turkish>Yerel liste: yerleşik listeyi kullan</Turkish>
             </Key>
             <Key ID="STR_FPSC_local_builtin_tip">
-                <English>Built-in list of heavy, visual-only objects (grass, wheat, bushes, rocks, crops, hay, stumps, huge prop groups). Every player hides these on their own machine: no network traffic, no effect on collision.</English>
-                <Turkish>Ağır ve yalnızca görsel objelerin (çim, buğday, çalı, kaya, ekin, saman, kütük, çok kalabalık props grupları) yerleşik listesi. Her oyuncu bunları kendi bilgisayarında gizler: ağ yükü yok, çarpışmaya etkisi yok.</Turkish>
+                <English>Built-in list of heavy, visual-only decor (grass, wheat, bushes, crops, stumps, crater decals). Rocks, hay bales, walls and other cover objects are NOT included. Every player hides these on their own machine: no network traffic, no effect on collision.</English>
+                <Turkish>Ağır ve yalnızca görsel süs objelerinin (çim, buğday, çalı, ekin, kütük, çukur dekalleri) yerleşik listesi. Kaya, saman balyası, duvar gibi siper objeleri YOK. Her oyuncu bunları kendi bilgisayarında gizler: ağ yükü yok, çarpışmaya etkisi yok.</Turkish>
             </Key>
             <Key ID="STR_FPSC_local_list">
                 <English>Local list: extra entries</English>

@@ -45,8 +45,9 @@ Kısayollar: **Ctrl+Shift+O** = 300 m tara, **Ctrl+Shift+I** = nişangahtaki obj
 Üstte klasör/PBO öneki özeti (a3 / cup / jbad …) bulunur; mevcut liste tarafından zaten eşleşenler `HIDE` ile işaretlenir.
 
 ### Hibrit model (sunucu + yerel liste)
-* **Sunucu listesi** (`lists/server_default.sqf`): küçük, oynanışı etkileyen objeler (çöp, props, bariyer, tabela, lamba, enkaz, kaldırım). Sunucu `hideObjectGlobal` ile herkes için gizler, çarpışma da kalkar. Her işlem ağ mesajıdır: saniyede en fazla `FPSC_global_rate` (200), toplam `FPSC_global_max` (50 000).
-* **Yerel liste** (`lists/local_default.sqf`): ağır, yalnızca görsel objeler (çim, buğday, çalı, kaya, ekin, saman, kütük, `hag_objects`). Her oyuncu kendi bilgisayarında gizler, ağ yükü yoktur. Küme seyreltme ve yol kenarı temizliği de yereldir.
+* **Sunucu listesi** (`lists/server_default.sqf`): küçük, tamamen süs objeler (çöp, tabela, lamba, kaldırım, ev içi eşyalar, kablolar). Sunucu `hideObjectGlobal` ile herkes için gizler, çarpışma da kalkar. Her işlem ağ mesajıdır: saniyede en fazla `FPSC_global_rate` (200), toplam `FPSC_global_max` (50 000).
+* **Yerel liste** (`lists/local_default.sqf`): ağır, yalnızca görsel süs (çim, buğday, çalı, ekin, kütük, `hag_objects`).
+* **Kural:** yerleşik listelerde yalnızca saf süs vardır. AI'ın siper alabileceği (kaya, duvar, saman balyası, sandık, fıçı, boru, enkaz, bariyer) ve önemli objeler **yoktur**; bunlar `userconfig/fpsc/hide_list.txt` içinde isteğe bağlı satırlar olarak durur. Her oyuncu kendi bilgisayarında gizler, ağ yükü yoktur. Küme seyreltme ve yol kenarı temizliği de yereldir.
 * İki liste de **modun içinde** hazır gelir (Lythium/JBAD, CUP, Spearhead Normandiya, Krayina); eşleşmeyen girişler sessizce atlanır. Listeleri değiştirmek için `.sqf` dosyasını düzenleyip PBO'yu yeniden paketleyin ya da CBA'daki "ek girişler" kutularını kullanın.
 * **Yol kenarı temizliği (AI araçları için) sunucuda çalışır**: menzil (0–60 m), obje türü ve patikalar ayarlanabilir; "yalnızca araçların yakınında" açıkken sadece mürettebatlı kara araçlarının (AI veya oyuncu) çevresindeki yollar, araç bölgesi yarıçapı kadar önceden temizlenir. Sunucu listesiyle aynı hız ve toplam sınırını kullanır. Obje türüne göre çalışır, classname'e göre değil.
 * Ek girişler: `userconfig/fpsc/hide_list.txt` (sunucu, küçük tutun) ve CBA "Yerel liste: ek girişler" kutusu.

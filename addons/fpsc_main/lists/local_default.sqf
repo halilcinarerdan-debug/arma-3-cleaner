@@ -1,5 +1,7 @@
-// FPS Cleaner built-in LOCAL (every client hides these itself: grass, bushes, rocks, crops, hay, stumps, hag objects, props with huge counts ...) decor list. Syntax: see FPSC_fnc_parseRules (* = contains, ! = exception).
-// Edit this file and repack the PBO to change it; extra entries can also be typed into the CBA list box.
+// FPS Cleaner built-in LOCAL (every client hides these itself: grass, bushes, crops, stumps, hag objects, debris decals ...) decor list.
+// RULE: only pure decor is listed. Things bots can take cover behind (rocks, walls, hay bales, crates, barrels, pipes, wrecks,
+// barriers, timber) and important objects are NOT in here, see the optional lines in userconfig/fpsc/hide_list.txt.
+// Syntax: see FPSC_fnc_parseRules (* = contains, ! = exception). Edit + repack the PBO to change it, or use the CBA "extra entries" boxes.
 // Avoid a slash directly before a star (block comment for the preprocessor).
 [
     "*plants_f/clutter/",
@@ -13,32 +15,25 @@
     "*plants_f/bush/",
     "*jbad_veg/plants/bush/",
     "*gbr_bush/",
-    "*rocks_f/",
-    "*gbr_rocks/mono",
-    "*gbr_rocks1/rock",
-    "*gbr_rocks1/gran",
-    "*gbr_rocks1/cono",
-    "*jbad_trunk",
-    "*plants_e/bush/",
-    "*plants_e/plant/",
-    "*plants_e/misc/",
-    "*rocks_e/",
     "*vegetation_f_enoch/bush/",
     "*vegetation_f_enoch/crop/",
+    "*vegetation_f_enoch/clutter/",
     "*vegetation_f_exp/shrub/",
     "*vegetation_f_exp/crop/",
     "*vegetation_f_argo/bushes/",
-    "*vegetation_f_enoch/tree/d_",
-    "*rocks_f_enoch/",
-    "*spe_haystack",
-    "*spe_straw",
-    "*haybale_",
-    "*strawstack_",
-    "*spe_structures/items/",
-    "*industrial/materials/",
-    "*spe_water/riverdetails/",
-    "*shellcrater_",
-    "*disturbedsoil_",
+    "*_stump",
+    "*plants_e/bush/",
+    "*plants_e/plant/",
     "*hag_objects/",
-    "*vegetation_f_enoch/clutter/"
+    "*spe_water/riverdetails/",
+    "*crater_01_decal",
+    "*crater_02_decal",
+    "*crater_02_debris",
+    "*disturbedsoil_",
+    "*spe_apple",
+    "*spe_pears",
+    "*spe_litter",
+    "*spe_milk_",
+    "*spe_cider_",
+    "*spe_cow_dead"
 ]

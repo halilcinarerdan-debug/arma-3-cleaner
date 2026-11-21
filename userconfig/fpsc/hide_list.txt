@@ -1,8 +1,10 @@
 // FPS Cleaner - EXTRA entries for the SERVER list (hideObjectGlobal).
 // Server: <arma 3 server>/userconfig/fpsc/hide_list.txt   (turn on the CBA setting "Server list: also read userconfig\fpsc\hide_list.txt")
-// The big lists for Lythium/JBAD, CUP, Spearhead Normandy and Krayina are BUILT INTO the mod (addons/fpsc_main/lists/):
-//   server_default.sqf  -> small, gameplay-relevant objects, hidden by the server (rate limited + capped)
-//   local_default.sqf   -> heavy visual objects (grass, bushes, rocks, hag objects ...), hidden by every player locally
+//
+// The built-in lists (addons/fpsc_main/lists/) contain ONLY pure decor: grass, bushes, crops, stumps, litter, signs, lamps, pavements,
+// wires, hag objects ... Nothing bots can take cover behind and nothing important is hidden by default.
+//   server_default.sqf  -> small decor, hidden by the server (rate limited + capped)
+//   local_default.sqf   -> heavy decor, hidden by every player locally
 // Put only SMALL additions here. Heavy additions belong in the CBA "Local list: extra entries" box.
 //
 // Syntax: one entry per line (commas also work)
@@ -12,12 +14,17 @@
 // Do not write a slash right before a star: a slash-star pair starts a block comment in this file.
 // Lines starting with // are comments.
 
-// Optional, affects gameplay (cover). Paste into the CBA LOCAL list box if you want them gone:
-//   *jbad_structures/walls/           JBAD walls, ~78k objects
-//   *structures_e/wall/               CUP walls and fences, ~15k
-//   *polewalls/                       Livonia pasture wire fences (Krayina ~196k, Normandy ~37k)
-//   *spe_vegetation/bocage/           Normandy hedgerows + mounds, ~204k
-//   *spe_structures/walls/wood/       Normandy wooden fences, ~30k
-//   *spe_structures/walls/stone/      Normandy stone walls, ~86k
-//   hbarrier_big_f                    HESCO barriers
-// Never hide: cluttercutter_* (brings the grass back), spe_invisiblepath_* (AI paths), invisibleroadway_square_f, roads_e/runway, water/river models.
+// ---- COVER objects (bots can take cover behind them). Off by default. Paste into the CBA LOCAL list box to remove them for FPS ----
+//   *rocks_f/  *rocks_e/  *rocks_f_enoch/  *gbr_rocks/mono  *gbr_rocks1/rock  *gbr_rocks1/gran    boulders and rocks (Livonia ~230k, CUP ~91k)
+//   *haybale_  *strawstack_  *spe_haystack  *spe_straw                                              hay and straw bales
+//   *industrial/materials/                                                                          timber and wood piles
+//   *items/vessels/  *civ/market/  *civ/constructions/  *scrapyard/  *ind/pipes/  *ind_pipes/       barrels, crates, stalls, pipes
+//   *structures_f/wrecks/  *_wrecked  *misc/datsun  *misc/hiluxt                                    wrecks
+//   crash_barrier_f  cncbarriermedium4_f  cncbarriermedium_f  cncbarrier_stripes_f  *misc3/cncblock    barriers
+//   razorwire_f  *misc/jezek  hbarrier_big_f  hbarrier_5_f  hbarrier_3_f  hbarrier_1_f               obstacles, HESCO
+//   *military/supplies/  *props_f_exp/  *sportsgrounds/                                              ammo boxes, crates, sports equipment
+//   *tree/d_picea_stem  *d_fagussylvatica_fallen  *jbad_trunk  *plants_e/misc/                         fallen logs, trunks (Livonia ~85k stems)
+//   *jbad_structures/walls/  *structures_e/wall/  *polewalls/  *spe_structures/walls/  *spe_vegetation/bocage/   walls, fences, hedgerows (very heavy, big gameplay change)
+//
+// Never hide: cluttercutter_* (brings the grass back), spe_invisiblepath_* (AI paths), invisibleroadway_square_f, roads_e/runway, water/river models,
+// houses, power poles.
