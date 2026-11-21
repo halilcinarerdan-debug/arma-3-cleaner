@@ -1,7 +1,8 @@
 // Works through the pending jobs in small batches so that a chunk with tens of thousands of
 // objects never causes a frame hitch.
 //   FPSC_s_jobs  : [objects, index, mode]   mode 0 = server list (hideObjectGlobal), 1 = local list (hideObject),
-//                                           2 = already decided, hide locally (cluster / roadside)
+//                                           2 = already decided, hide locally (cluster thinning),
+//                                           3 = already decided, hide globally (roadside clearing for AI vehicles)
 //   FPSC_s_pjobs : [objects, index, freeze] destruction protection (server only)
 // Server mode: every hideObjectGlobal / allowDamage / enableSimulationGlobal is a network message, so they are
 // paid for with tokens (FPSC_s_tokens, refilled with FPSC_r_rate per second) and the number of globally hidden
@@ -15,7 +16,7 @@ while {(count FPSC_s_jobs > 0) && {diag_tickTime < _deadline}} do {
     private _objs = _job select 0;
     private _i = _job select 1;
     private _mode = _job select 2;
-    private _global = (_mode == 0);
+    private _global = (_mode == 0) || {_mode == 3};
     private _n = 300;
     private _skip = false;
     if (_global) then {
@@ -36,7 +37,7 @@ while {(count FPSC_s_jobs > 0) && {diag_tickTime < _deadline}} do {
         } else {
             private _end = (_i + _n) min (count _objs);
             private _hide = [];
-            if (_mode == 2) then {
+            if (_mode >= 2) then {
                 _hide = _objs select [_i, _end - _i];
             } else {
                 private _rules = if (_global) then { FPSC_r_srv } else { FPSC_r_loc };

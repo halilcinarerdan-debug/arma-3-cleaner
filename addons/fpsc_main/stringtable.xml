@@ -159,28 +159,28 @@
                 <Turkish>Bir hücrenin küme sayılması için en az bu kadar obje gerekir (seyrek hücrelere dokunulmaz).</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_enabled">
-                <English>Remove objects next to roads (local)</English>
-                <Turkish>Yol kenarındaki objeleri sil (yerel)</Turkish>
+                <English>Roadside clearing for AI vehicles (server)</English>
+                <Turkish>Yol kenarı temizliği: AI araçları için (sunucu)</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_enabled_tip">
-                <English>Hides selected object types close to roads. Done locally by every player; works by object type, not by classname.</English>
-                <Turkish>Yola yakın seçili tür objeleri gizler. Her oyuncu kendi tarafında yapar; classname'e değil obje türüne göre çalışır.</Turkish>
+                <English>Hides objects of the chosen types near roads on the SERVER (hideObjectGlobal), so the collision disappears and AI-driven vehicles no longer get stuck on trees, fences or walls. Works by object type, not by classname. Rate limited and capped like the server list.</English>
+                <Turkish>Yola yakın seçili tür objeleri SUNUCUDA gizler (hideObjectGlobal); çarpışma kalkar ve AI sürücülü araçlar ağaç, çit veya duvara takılmaz. Classname'e değil obje türüne göre çalışır. Sunucu listesi gibi hız ve toplam sınırı vardır.</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_range">
                 <English>Roadside range (m)</English>
                 <Turkish>Yol kenarı menzili (m)</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_range_tip">
-                <English>Distance from the road centre line. 8-12 m clears a typical roadside strip.</English>
-                <Turkish>Yol orta çizgisinden uzaklık. 8-12 m tipik bir yol kenarı şeridini temizler.</Turkish>
+                <English>Distance from the road centre line, adjustable. 6-10 m clears the lane edges, 12+ m also wide verges. Larger = more objects = more network traffic.</English>
+                <Turkish>Yol orta çizgisinden uzaklık, ayarlanabilir. 6-10 m şerit kenarlarını, 12+ m geniş banketleri de temizler. Büyük değer = daha çok obje = daha çok ağ trafiği.</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_types">
                 <English>Roadside object types</English>
                 <Turkish>Yol kenarı obje türleri</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_types_tip">
-                <English>Which terrain object types are removed near roads.</English>
-                <Turkish>Yol kenarında hangi terrain obje türlerinin silineceği.</Turkish>
+                <English>Which terrain object types are removed near roads. "Everything small" also removes fences, walls and cover objects, which are the usual AI blockers.</English>
+                <Turkish>Yol kenarında hangi terrain obje türlerinin silineceği. "Tüm küçük objeler" çit, duvar ve siper objelerini de siler; AI'ı en çok bunlar takar.</Turkish>
             </Key>
             <Key ID="STR_FPSC_road_tracks">
                 <English>Also treat tracks/trails as roads</English>
@@ -341,6 +341,22 @@
             <Key ID="STR_FPSC_local_list_tip">
                 <English>Extra entries hidden locally by every player (hideObject). Syntax: separated by comma/semicolon/space. Plain entry = classname or model file/path (jbad_barrel_01). Entry with * = contains match (jbad_*, *bottle*). Prefix ! = never hide.</English>
                 <Turkish>Her oyuncunun yerel olarak (hideObject) gizlediği ek girişler. Söz dizimi: virgül/noktalı virgül/boşlukla ayır. Düz giriş = classname veya model dosyası/yolu (jbad_barrel_01). * içeren giriş = içeriyorsa eşleşir (jbad_*, *bottle*). Başında ! = asla gizleme.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_veh">
+                <English>Roadside: only near vehicles</English>
+                <Turkish>Yol kenarı: yalnızca araçların yakınında</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_veh_tip">
+                <English>On = only the roads around crewed land vehicles (AI or player) are cleared, in the vehicle zone below. Off = every road inside the processing radius.</English>
+                <Turkish>Açık = yalnızca mürettebatlı kara araçlarının (AI veya oyuncu) çevresindeki yollar, aşağıdaki araç bölgesi içinde temizlenir. Kapalı = işlem yarıçapındaki tüm yollar.</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_vehRadius">
+                <English>Roadside: vehicle zone radius (m)</English>
+                <Turkish>Yol kenarı: araç bölgesi yarıçapı (m)</Turkish>
+            </Key>
+            <Key ID="STR_FPSC_road_vehRadius_tip">
+                <English>Radius around each crewed land vehicle in which the roadside is cleared ahead of it. Larger = the road is cleared further ahead of fast convoys.</English>
+                <Turkish>Her mürettebatlı kara aracının çevresinde yol kenarının önceden temizleneceği yarıçap. Büyük değer = hızlı konvoyların daha ilerisi önceden temizlenir.</Turkish>
             </Key>
         </Container>
     </Package>

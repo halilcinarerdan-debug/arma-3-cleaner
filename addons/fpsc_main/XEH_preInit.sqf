@@ -71,6 +71,8 @@ private _presetLabels = ["preset_0", "preset_1", "preset_2", "preset_3", "preset
 ["FPSC_road_range", "SLIDER", "road_range", "4", [0, 60, 10, 0], 1] call _add;
 ["FPSC_road_types", "LIST", "road_types", "4", [[0, 1, 2, 3, 4], _presetLabels, 2], 1] call _add;
 ["FPSC_road_tracks", "CHECKBOX", "road_tracks", "4", false, 1] call _add;
+["FPSC_road_veh", "CHECKBOX", "road_veh", "4", true, 1] call _add;
+["FPSC_road_vehRadius", "SLIDER", "road_vehRadius", "4", [100, 1500, 400, 0], 1] call _add;
 
 // ---- 5. Destruction / simulation ----
 ["FPSC_prot_mode", "LIST", "prot_mode", "5",

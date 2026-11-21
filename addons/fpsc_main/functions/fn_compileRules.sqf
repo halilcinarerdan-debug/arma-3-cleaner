@@ -1,7 +1,8 @@
 // Reads the CBA settings and compiles them into the FPSC_r_* globals used by the pipeline.
 // Hybrid model:
 //   server  : "server list" -> hideObjectGlobal (rate limited + capped), destruction protection, mission objects
-//   clients : "local list" + cluster thinning + roadside removal -> hideObject (no network traffic)
+//   clients : "local list" + cluster thinning -> hideObject (no network traffic)
+//   server  : also the roadside clearing for AI vehicles (global, same rate limit / cap)
 // Runs on every machine each time the settings change.
 
 private _on = FPSC_enabled;
@@ -35,7 +36,7 @@ FPSC_r_srvOn = _on && isServer && FPSC_hide_enabled && _srvKnown;
 FPSC_r_locOn = _on && hasInterface && FPSC_hide_enabled && _locKnown;
 FPSC_r_missionOn = _on && isServer && FPSC_hide_mission && FPSC_hide_enabled && _srvKnown;
 
-// ---- cluster thinning + roadside removal: local, every client for itself ----
+// ---- cluster thinning: local, every client for itself ----
 FPSC_r_cCell = FPSC_cluster_cell max 5;
 FPSC_r_cMin = FPSC_cluster_min max 2;
 FPSC_r_cPct = FPSC_cluster_percent;
@@ -45,7 +46,8 @@ FPSC_r_clusterOn = _on && hasInterface && FPSC_cluster_enabled && (FPSC_r_cPct >
 FPSC_r_roadRange = FPSC_road_range;
 FPSC_r_roadTypes = [FPSC_road_types] call FPSC_fnc_typePreset;
 FPSC_r_roadTracks = FPSC_road_tracks;
-FPSC_r_roadOn = _on && hasInterface && FPSC_road_enabled && (FPSC_r_roadRange > 0);
+// roadside clearing runs on the SERVER (global): the collision has to disappear for the AI-driven vehicles
+FPSC_r_roadOn = _on && isServer && FPSC_road_enabled && (FPSC_r_roadRange > 0);
 
 // ---- destruction protection (server): 1 vegetation | 2 all small objects | 3 small objects + buildings ----
 FPSC_r_protSmall = [];

@@ -47,18 +47,22 @@ switch (FPSC_s_state) do {
     case 2: {
         if (diag_tickTime >= FPSC_s_nextEnq) then {
             FPSC_s_nextEnq = diag_tickTime + 3;
-            call FPSC_fnc_enqueue;
+            if (FPSC_r_srvOn || FPSC_r_locOn || FPSC_r_clusterOn || {count FPSC_r_protSmall > 0} || {count FPSC_r_protBld > 0} || {FPSC_r_roadOn && {!FPSC_road_veh}}) then { call FPSC_fnc_enqueue };
+            if (FPSC_r_roadOn && {FPSC_road_veh}) then { call FPSC_fnc_enqueueVeh };
         };
         [_t0 + _lim] call FPSC_fnc_jobStep;
-        while {(count FPSC_s_jobs) == 0 && {(count FPSC_s_pjobs) == 0 && {FPSC_s_qi < count FPSC_s_queue && {(diag_tickTime - _t0) < _lim}}}} do {
-            (FPSC_s_queue select FPSC_s_qi) call FPSC_fnc_processChunk;
-            FPSC_s_qi = FPSC_s_qi + 1;
+        while {(count FPSC_s_jobs) == 0 && {(count FPSC_s_pjobs) == 0 && {(diag_tickTime - _t0) < _lim && {(FPSC_s_vqi < count FPSC_s_vq) || {FPSC_s_qi < count FPSC_s_queue}}}}} do {
+            if (FPSC_s_vqi < count FPSC_s_vq) then {
+                (FPSC_s_vq select FPSC_s_vqi) call FPSC_fnc_processChunk; // vehicle zones first
+                FPSC_s_vqi = FPSC_s_vqi + 1;
+            } else {
+                (FPSC_s_queue select FPSC_s_qi) call FPSC_fnc_processChunk;
+                FPSC_s_qi = FPSC_s_qi + 1;
+            };
             FPSC_s_chunks = FPSC_s_chunks + 1;
         };
-        if (FPSC_s_qi > 0 && {FPSC_s_qi >= count FPSC_s_queue}) then {
-            FPSC_s_queue = [];
-            FPSC_s_qi = 0;
-        };
+        if (FPSC_s_qi > 0 && {FPSC_s_qi >= count FPSC_s_queue}) then { FPSC_s_queue = []; FPSC_s_qi = 0 };
+        if (FPSC_s_vqi > 0 && {FPSC_s_vqi >= count FPSC_s_vq}) then { FPSC_s_vq = []; FPSC_s_vqi = 0 };
         if (FPSC_debug && {diag_tickTime >= FPSC_s_nextLog}) then {
             FPSC_s_nextLog = diag_tickTime + 30;
             if (FPSC_s_chunks > FPSC_s_lastLogChunks) then {

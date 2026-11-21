@@ -22,6 +22,7 @@ class CfgFunctions {
             class clusterPick {};
             class compileRules {};
             class enqueue {};
+            class enqueueVeh {};
             class inspect {};
             class jobStep {};
             class modelMap {};
